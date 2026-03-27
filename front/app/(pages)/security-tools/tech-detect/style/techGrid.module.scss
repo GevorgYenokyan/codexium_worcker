@@ -1,0 +1,72 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+
+    @include s.mediaTo(s.$size576) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: s.$border-radius;
+    padding: 16px;
+    @include s.display-flex-direction(column, flex-start);
+    gap: 8px;
+    transition: border-color s.$transition, background-color s.$transition;
+
+    &:hover {
+        border-color: rgba(255, 255, 255, 0.15);
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+}
+
+.cardTop {
+    @include s.display-center(space-between, center);
+    gap: 8px;
+}
+
+.catBadge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid;
+    white-space: nowrap;
+}
+
+.confBadge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    flex-shrink: 0;
+    text-transform: capitalize;
+}
+
+.conf_high   { border-color: rgba(s.$success-color, 0.4); color: s.$success-color; }
+.conf_medium { border-color: rgba(#ffc107, 0.4);           color: #ffc107; }
+.conf_low    { border-color: rgba(s.$grey, 0.3);            color: s.$grey; }
+
+.techName {
+    font-size: s.$large-font-size;
+    font-weight: 600;
+    color: s.$text_color;
+}
+
+.techVer {
+    font-size: s.$small-font-size;
+    color: s.$grey;
+    font-weight: 400;
+}
+
+.techBy {
+    font-size: 12px;
+    color: s.$grey;
+    font-style: italic;
+    line-height: s.$standart-line-height;
+}

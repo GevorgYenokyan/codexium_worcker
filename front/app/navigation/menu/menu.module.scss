@@ -1,0 +1,48 @@
+@use "../../style/styles.module.scss" as s;
+
+.header {
+    z-index: 50;
+    width: 100%;
+    transition: 0.3s;
+    height: 90px;
+    position: fixed;
+    //   background-color: s.$blackOp;
+    top: 0;
+    left: 0;
+    &.hidden {
+        display: none;
+    }
+    &:before {
+        z-index: -1;
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: s.$blackOp;
+        backdrop-filter: blur(20px);
+    }
+    @include s.mediaTo(s.$size960) {
+        height: 60px;
+    }
+    .burger_menu {
+        color: s.$text_color;
+        display: none;
+    }
+    .container {
+        padding: s.$padding;
+        max-width: s.$container;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        @include s.mediaTo(1280px) {
+            padding: 0 16px;
+        }
+        @include s.mediaTo(s.$size960) {
+            display: none;
+        }
+        @include s.display-center(flex-end, center);
+    }
+}

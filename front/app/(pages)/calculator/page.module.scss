@@ -1,0 +1,12 @@
+@use "../../style/styles.module.scss" as s;
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 250px;
+    @include s.mediaTo(s.$size960) {
+        padding: 100px 10px;
+    }
+}

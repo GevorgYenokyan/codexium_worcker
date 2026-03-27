@@ -1,0 +1,18 @@
+// flexComponents.module.scss
+@use "../../style/styles.module.scss" as styles;
+
+.flexCenter {
+    @include styles.display-center(center, center);
+}
+
+.flexColumn {
+    @include styles.display-flex-direction(column, center);
+}
+
+.justifyBetween {
+    justify-content: space-between;
+}
+
+.alignStart {
+    align-items: flex-start;
+}

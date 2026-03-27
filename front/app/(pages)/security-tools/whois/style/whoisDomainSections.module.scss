@@ -1,0 +1,35 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.statusAlert {
+    background-color: rgba(#ffc107, 0.08);
+    border: 1px solid rgba(#ffc107, 0.25);
+    border-radius: 8px;
+    color: #ffc107;
+    font-size: s.$small-font-size;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+}
+
+.statusList {
+    @include s.display-flex-direction(column, flex-start);
+    gap: 6px;
+}
+
+.statusItem {
+    @include s.display-center(flex-start, center);
+    gap: 8px;
+}
+
+.statusDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: s.$main-color;
+    flex-shrink: 0;
+}
+
+.statusCode {
+    font-family: monospace;
+    font-size: 13px;
+    color: s.$color2;
+}

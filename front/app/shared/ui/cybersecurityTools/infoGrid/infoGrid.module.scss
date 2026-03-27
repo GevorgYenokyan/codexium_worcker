@@ -1,0 +1,60 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.grid {
+    display: grid;
+    gap: 12px;
+}
+
+.grid2 {
+    grid-template-columns: 1fr 1fr;
+    @include s.mediaTo(s.$size640) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.grid1 {
+    grid-template-columns: 1fr;
+}
+
+// ─── Row ──────────────────────────────────────────────────────────────────────
+.row {
+    @include s.display-flex-direction(column, flex-start);
+    gap: 3px;
+}
+
+.rowLabel {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: s.$grey;
+}
+
+.rowValue {
+    font-size: s.$small-font-size;
+    color: s.$color2;
+    word-break: break-all;
+    line-height: s.$standart-line-height;
+}
+
+.rowMono {
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.rowLink {
+    font-size: s.$small-font-size;
+    color: s.$main-color;
+    word-break: break-all;
+    text-decoration: none;
+    transition: opacity s.$transition;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.warnText {
+    color: #ffc107;
+}
+.failText {
+    color: s.$danger-color;
+}

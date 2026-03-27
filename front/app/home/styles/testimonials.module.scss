@@ -1,0 +1,142 @@
+@use "../../style/styles.module.scss" as s;
+
+.testimonials {
+  max-width: s.$container;
+  margin: 100px auto;
+  padding: s.$padding;
+  @include s.mediaTo(1200px) {
+    padding: 0 16px;
+  }
+  .sliderTitle {
+    gap: 5px;
+    @include s.display-center(space-between, center);
+    h2 {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      @include s.mediaTo(s.$size960) {
+        gap: 6px;
+      }
+      .line {
+        transform: translateY(-3px);
+        width: 4px;
+        height: 68px;
+        background-color: s.$main-color;
+        @include s.mediaTo(s.$size960) {
+          height: 40px;
+        }
+      }
+      b {
+        color: s.$text_color;
+        @include s.h2;
+
+        .line1 {
+          display: inline-block;
+          white-space: pre-wrap;
+          width: 100%;
+        }
+      }
+    }
+    .arrows {
+      gap: 6px;
+      @include s.display-center(space-between, center);
+      button {
+        border-radius: 6px;
+        width: 70px;
+        height: 70px;
+        background-color: #f4fffe1a;
+        border: 0;
+        font-size: 38px;
+        color: s.$main-color;
+        cursor: pointer;
+        transition: s.$transition;
+        &:hover {
+          background-color: #f4fffe2c;
+        }
+        @include s.display-center(center, center);
+        @include s.mediaTo(s.$size960) {
+          width: 40px;
+          height: 40px;
+          font-size: 25px;
+        }
+        @include s.mediaTo(s.$size360) {
+          width: 30px;
+          height: 30px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  .main-container {
+    position: relative;
+    margin: 0 -15px;
+    margin-top: 80px;
+    @include s.mediaTo(s.$size720) {
+      margin-top: 40px;
+    }
+    .slider-container {
+      position: relative;
+      overflow: none;
+    }
+  }
+  .testimonialsElem {
+    padding: 0 15px;
+
+    .elem {
+      border-radius: 6px;
+      border: 1px solid s.$main-color;
+      padding: 40px 30px;
+      text-align: center;
+      color: s.$white;
+      background-color: #ffffff08;
+      gap: 36px;
+      min-height: 260px;
+      @include s.display-flex-direction(column, center);
+      @include s.mediaTo(1100px) {
+        padding: 30px 20px;
+      }
+      @include s.mediaTo(s.$size960) {
+        min-height: 240px;
+      }
+      @include s.mediaTo(s.$size480) {
+        min-height: 200px;
+      }
+      .desc {
+        @include s.largeText;
+        height: 75px;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: s.$main-color;
+          border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background-color: darken(s.$main-color, 10%);
+        }
+
+        scrollbar-width: thin;
+        scrollbar-color: s.$main-color transparent;
+      }
+      .name {
+        gap: 5px;
+        @include s.display-flex-direction(column, center);
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 25px;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+  }
+}

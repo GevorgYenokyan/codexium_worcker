@@ -1,0 +1,37 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.searchBar {
+    @include s.display-center(flex-start, center);
+    gap: 8px;
+    margin-bottom: 32px;
+
+    @include s.mediaTo(s.$size576) {
+        flex-direction: column;
+    }
+}
+
+.input {
+    flex: 1;
+    width: 100%;
+}
+
+.scanBtn {
+    @extend .secondary_btn;
+    white-space: nowrap;
+    padding: 12px 32px;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+
+        &:hover {
+            color: s.$color;
+            background-color: s.$main-color;
+        }
+    }
+
+    @include s.mediaTo(s.$size576) {
+        width: 100%;
+        text-align: center;
+    }
+}

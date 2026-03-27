@@ -1,0 +1,64 @@
+@use "../../style/styles.module.scss" as s;
+
+.container {
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  padding: 200px 16px 300px;
+  justify-content: center;
+  @include s.display-flex-direction(column,center);
+  @include s.mediaTo(s.$size960) {
+    padding: 100px 16px ;
+  }
+  .right {
+    position: absolute;
+    bottom: 0%;
+    right: -35px;
+    width: 200px;
+    height: 320px;
+    z-index: 1;
+    transition: 0.6s;
+    transition-timing-function: cubic-bezier(0, 2, 1, 2);
+    @include s.mediaTo(s.$size960) {
+      width: 150px;
+      height: 205px;
+      right: -35px;
+    }
+    @include s.mediaTo(s.$size480) {
+      width: 90px;
+      right: -15px;
+      height: 145px;
+    }
+    &:hover {
+      transform: translateX(-10px);
+    }
+  }
+  p{
+    max-width: 900px;
+    width: 100%;
+    color: s.$text_color;
+    font-size: 20px;
+    line-height: s.$standart-line-height;
+    text-align: center;
+  }
+  h2{
+    font-size: 32px;
+    font-weight: 400;
+    line-height: s.$standart-line-height;
+    color: s.$main-color;
+    margin: 30px 0 24px;
+    text-align: center;
+    @include s.mediaTo(s.$size960) {
+        font-size: 24px;
+    }
+  }
+  .rocket{
+    width: 172px;
+    height: 172px;
+    object-fit: cover;
+    @include s.mediaTo(s.$size960) {
+      width: 140px;
+      height: 140px;
+    }
+  }
+}

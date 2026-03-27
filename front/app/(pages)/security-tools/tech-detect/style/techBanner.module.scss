@@ -1,0 +1,37 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.banner {
+    @include s.display-center(space-between, center);
+    background-color: rgba(s.$main-color, 0.06);
+    border: 1px solid rgba(s.$main-color, 0.2);
+    border-radius: 12px;
+    padding: 16px 20px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.domain {
+    font-size: s.$large-font-size;
+    font-weight: 600;
+    font-family: monospace;
+}
+
+.count {
+    font-size: s.$small-font-size;
+    color: s.$main-color;
+    margin-top: 2px;
+}
+
+.cats {
+    @include s.display-center(flex-end, center);
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.catBadge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid;
+}

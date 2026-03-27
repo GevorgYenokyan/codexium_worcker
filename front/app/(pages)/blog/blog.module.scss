@@ -1,0 +1,118 @@
+@use "../../style/styles.module.scss" as s;
+.blog {
+  position: relative;
+  padding: 200px 0 125px;
+
+  @include s.mediaTo(s.$size960) {
+    padding: 100px 0 125px;
+  }
+  .container {
+    max-width: s.$container;
+    margin: 0 auto;
+    padding: s.$padding;
+    @include s.mediaTo(1200px) {
+      padding: 0 20px;
+    }
+    @include s.mediaTo(s.$size960) {
+      padding: 0 16px;
+    }
+    h2 {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      @include s.mediaTo(s.$size960) {
+        gap: 6px;
+      }
+      .line {
+        width: 4px;
+        height: 68px;
+        background-color: s.$main-color;
+        @include s.mediaTo(s.$size960) {
+          height: 40px;
+        }
+      }
+      b {
+        color: s.$text_color;
+        font-size: 48px;
+        line-height: s.$standart-line-height;
+        @include s.mediaTo(s.$size960) {
+          font-size: 24px;
+        }
+        
+      .line1 {
+        display: inline-block;
+        white-space: pre-wrap;
+        width: 100%;
+      }
+      }
+    }
+  }
+  .blogsContainer {
+    margin: 40px -20px 0;
+    flex-wrap: wrap;
+    @include s.display-center(flex-start, flex-start);
+    @include s.mediaTo(s.$size960) {
+      margin: 40px -8px 0;
+    }
+
+    .project {
+      padding: 20px;
+      flex: 0 0 33.33333%;
+      @include s.mediaTo(s.$size960) {
+        padding: 8px;
+      }
+      @include s.mediaTo(s.$size720) {
+        flex: 0 0 50%;
+      }
+      @include s.mediaTo(s.$size640) {
+        flex: 0 0 100%;
+      }
+      .elem {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 10px;
+        background-color: #f4fffe;
+        &:hover {
+          img {
+            transform: scale(1.05);
+          }
+        }
+        .projectImage {
+          @include s.proportion(68.25%, 100%);
+        }
+        .projectInfo {
+          padding: 14px 16px 16px;
+          gap: 7px;
+          @include s.display-flex-direction(column, flex-start);
+          .date,
+          p {
+            color: s.$black;
+            font-size: s.$standart-font-size;
+            line-height: s.$standart-line-height;
+          }
+          p {
+            padding: 10px 0;
+          }
+          h4 {
+            @include s.h4;
+          }
+          .readMore {
+            background-color: s.$main-color;
+            text-decoration: none;
+            color: s.$white;
+            padding: 8px 40px;
+            border: s.$border;
+            border-radius: 25px;
+            transition: s.$transition;
+            @include s.largeText;
+            &:hover {
+              background-color: s.$white;
+              color: s.$main-color !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

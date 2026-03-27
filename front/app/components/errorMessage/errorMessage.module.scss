@@ -1,0 +1,26 @@
+@use "../../style/styles.module.scss" as styles;
+
+.message-open {
+    overflow: hidden;
+    height: 40px;
+    transition: height 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.message-close {
+    transition: height 0.2s;
+    overflow: hidden;
+    height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.success-text {
+}
+
+.error-text {
+    color: styles.$error_color;
+}

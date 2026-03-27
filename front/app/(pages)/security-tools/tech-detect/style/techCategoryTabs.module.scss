@@ -1,0 +1,34 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.tabs {
+    @include s.display-center(flex-start, center);
+    gap: 2px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-wrap: wrap;
+    margin-bottom: -1px;
+}
+
+.tab {
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: s.$grey;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    margin-bottom: -1px;
+    white-space: nowrap;
+    transition:
+        color s.$transition,
+        border-color s.$transition;
+
+    &:hover {
+        color: s.$text_color;
+    }
+}
+
+.tabActive {
+    color: s.$main-color;
+    border-bottom-color: s.$main-color;
+}

@@ -1,0 +1,63 @@
+@use "../../style/styles.module.scss" as s;
+
+.technology {
+  max-width: s.$container;
+  margin: 100px auto;
+  padding: s.$padding;
+  @include s.mediaTo(1200px) {
+    padding: 0 16px;
+  }
+  h2 {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    @include s.mediaTo(s.$size960) {
+      gap: 6px;
+    }
+    .line {
+      transform: translateY(-3px);
+      width: 4px;
+      height: 68px;
+      background-color: s.$main-color;
+      @include s.mediaTo(s.$size960) {
+        height: 40px;
+      }
+    }
+    b {
+      color: s.$text_color;
+      @include s.h2;
+
+      .line1 {
+        display: inline-block;
+        white-space: pre-wrap;
+        width: 100%;
+      }
+    }
+  }
+
+  .main-container {
+    position: relative;
+    margin-top: 80px;
+    @include s.mediaTo(s.$size720) {
+      margin-top: 40px;
+    }
+    .slider-container {
+      position: relative;
+      overflow: none;
+    }
+  }
+  .image {
+    outline: none;
+    width: 100%;
+    > img {
+      object-fit: contain;
+      width: 100%;
+      transition: s.$transition;
+      filter: grayscale(100%) brightness(110%);
+      &:hover {
+              filter: grayscale(0%)  brightness(90%);
+
+      }
+    }
+  }
+}

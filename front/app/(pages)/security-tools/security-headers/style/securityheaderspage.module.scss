@@ -1,0 +1,372 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.page {
+    min-height: 100vh;
+    background-color: s.$black;
+    color: s.$text_color;
+    padding: 48px 16px;
+}
+
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+// ─── Heading ──────────────────────────────────────────────────────────────────
+.heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    @include s.h3;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: s.$grey;
+    font-size: s.$small-font-size;
+    line-height: s.$standart-line-height;
+}
+
+// ─── Search bar ───────────────────────────────────────────────────────────────
+.searchBar {
+    @include s.display-center(flex-start, center);
+    gap: 8px;
+    margin-bottom: 32px;
+
+    @include s.mediaTo(s.$size576) {
+        flex-direction: column;
+    }
+}
+
+.input {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: s.$border-radius;
+    padding: 12px 16px;
+    font-size: s.$small-font-size;
+    color: s.$text_color;
+    transition: border-color s.$transition;
+    width: 100%;
+
+    &::placeholder {
+        color: s.$grey;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: s.$main-color;
+    }
+}
+
+.scanBtn {
+    @extend .secondary_btn;
+    white-space: nowrap;
+    padding: 12px 32px;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+
+        &:hover {
+            color: s.$color;
+            background-color: s.$main-color;
+        }
+    }
+
+    @include s.mediaTo(s.$size576) {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+// ─── Error ────────────────────────────────────────────────────────────────────
+.errorBox {
+    background-color: rgba(191, 67, 66, 0.1);
+    border: 1px solid rgba(191, 67, 66, 0.4);
+    border-radius: s.$border-radius;
+    padding: 16px;
+    color: s.$danger-color;
+    font-size: s.$small-font-size;
+    margin-bottom: 24px;
+}
+
+// ─── Results ──────────────────────────────────────────────────────────────────
+.results {
+    @include s.display-flex-direction(column, stretch);
+    gap: 16px;
+}
+
+// ─── Grade card ───────────────────────────────────────────────────────────────
+.gradeCard {
+    @include s.display-center(flex-start, center);
+    gap: 24px;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid transparent;
+    transition: s.$transition;
+}
+
+.grade_APlus {
+    background-color: rgba(s.$success-color, 0.08);
+    border-color: rgba(s.$success-color, 0.3);
+    .gradeLetter {
+        color: s.$success-color;
+    }
+}
+.grade_A {
+    background-color: rgba(s.$main-color, 0.08);
+    border-color: rgba(s.$main-color, 0.3);
+    .gradeLetter {
+        color: s.$main-color;
+    }
+}
+.grade_B {
+    background-color: rgba(255, 193, 7, 0.08);
+    border-color: rgba(255, 193, 7, 0.3);
+    .gradeLetter {
+        color: #ffc107;
+    }
+}
+.grade_C {
+    background-color: rgba(255, 152, 0, 0.08);
+    border-color: rgba(255, 152, 0, 0.3);
+    .gradeLetter {
+        color: #ff9800;
+    }
+}
+.grade_D {
+    background-color: rgba(s.$danger-color, 0.08);
+    border-color: rgba(s.$danger-color, 0.3);
+    .gradeLetter {
+        color: s.$danger-color;
+    }
+}
+.grade_F {
+    background-color: rgba(s.$danger-color, 0.12);
+    border-color: rgba(s.$danger-color, 0.5);
+    .gradeLetter {
+        color: s.$danger-color;
+    }
+}
+
+.gradeLetter {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.gradeInfo {
+    @include s.display-flex-direction(column, flex-start);
+    gap: 4px;
+}
+
+.gradeUrl {
+    font-size: s.$large-font-size;
+    font-weight: 600;
+    color: s.$text_color;
+    word-break: break-all;
+}
+
+.gradeMeta {
+    font-size: s.$small-font-size;
+    color: s.$grey;
+    line-height: s.$standart-line-height;
+}
+
+.gradeSummary {
+    @include s.display-center(flex-start, center);
+    gap: 16px;
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.passed {
+    color: s.$success-color;
+}
+.failed {
+    color: s.$danger-color;
+}
+.warnings {
+    color: #ffc107;
+}
+
+// ─── Headers list ─────────────────────────────────────────────────────────────
+.headersList {
+    @include s.display-flex-direction(column, stretch);
+    gap: 6px;
+}
+
+.headerItem {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: s.$border-radius;
+    overflow: hidden;
+    transition: border-color s.$transition;
+
+    &:hover {
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+}
+
+.headerRow {
+    width: 100%;
+    @include s.display-center(flex-start, center);
+    gap: 10px;
+    padding: 12px 16px;
+    text-align: left;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color s.$transition;
+    color: s.$text_color;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.04);
+    }
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.dot_present {
+    background-color: s.$success-color;
+}
+.dot_missing {
+    background-color: s.$danger-color;
+}
+.dot_warning {
+    background-color: #ffc107;
+}
+
+.headerName {
+    flex: 1;
+    font-family: monospace;
+    font-size: s.$small-font-size;
+    color: s.$color2;
+}
+
+.headerWeight {
+    font-size: 12px;
+    color: s.$grey;
+    margin-right: 4px;
+}
+
+.badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+}
+.badge_present {
+    border-color: rgba(s.$success-color, 0.4);
+    color: s.$success-color;
+}
+.badge_missing {
+    border-color: rgba(s.$danger-color, 0.4);
+    color: s.$danger-color;
+}
+.badge_warning {
+    border-color: rgba(#ffc107, 0.4);
+    color: #ffc107;
+}
+
+.chevron {
+    font-size: 11px;
+    color: s.$grey;
+    margin-left: 4px;
+}
+
+// ─── Expanded details ─────────────────────────────────────────────────────────
+.headerDetails {
+    padding: 12px 16px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    @include s.display-flex-direction(column, flex-start);
+    gap: 8px;
+}
+
+.headerValue {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-family: monospace;
+    font-size: 12px;
+    color: s.$grey;
+    word-break: break-all;
+}
+
+.headerDescription {
+    font-size: s.$small-font-size;
+    color: s.$grey;
+    line-height: s.$standart-line-height;
+}
+
+.headerRecommendation {
+    font-size: s.$small-font-size;
+    color: rgba(#ffc107, 0.85);
+    line-height: s.$standart-line-height;
+
+    span {
+        font-weight: 600;
+    }
+}
+
+.learnMore {
+    font-size: 12px;
+    color: s.$main-color;
+    text-decoration: none;
+    transition: opacity s.$transition;
+
+    &:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+    }
+}
+
+// ─── Raw headers ─────────────────────────────────────────────────────────────
+.rawHeaders {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: s.$border-radius;
+}
+
+.rawHeadersSummary {
+    padding: 12px 16px;
+    font-size: s.$small-font-size;
+    color: s.$grey;
+    cursor: pointer;
+    user-select: none;
+    transition: color s.$transition;
+    list-style: none;
+
+    &:hover {
+        color: s.$text_color;
+    }
+}
+
+.rawHeadersList {
+    padding: 8px 16px 16px;
+}
+
+.rawHeaderRow {
+    font-family: monospace;
+    font-size: 12px;
+    padding: 2px 0;
+    word-break: break-all;
+}
+
+.rawHeaderKey {
+    color: s.$main-color;
+}
+.rawHeaderSep {
+    color: s.$grey;
+}
+.rawHeaderVal {
+    color: s.$color2;
+}

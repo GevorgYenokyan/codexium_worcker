@@ -1,0 +1,40 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.row {
+    @include s.display-center(flex-start, center);
+    gap: 8px;
+    font-size: s.$small-font-size;
+    color: s.$grey;
+    flex-wrap: wrap;
+}
+
+.item {
+    color: s.$color2;
+    b {
+        color: s.$main-color;
+    }
+}
+
+.dot {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.propTag {
+    font-size: 12px;
+    font-weight: 600;
+    color: s.$success-color;
+    background-color: rgba(s.$success-color, 0.1);
+    border: 1px solid rgba(s.$success-color, 0.3);
+    border-radius: 20px;
+    padding: 2px 10px;
+}
+
+.partialTag {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffc107;
+    background-color: rgba(#ffc107, 0.08);
+    border: 1px solid rgba(#ffc107, 0.3);
+    border-radius: 20px;
+    padding: 2px 10px;
+}

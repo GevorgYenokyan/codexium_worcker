@@ -1,0 +1,68 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.count {
+    font-size: 12px;
+    color: s.$grey;
+    margin-left: auto;
+}
+.notFound {
+    color: s.$grey;
+    font-size: s.$small-font-size;
+    font-style: italic;
+}
+
+.list {
+    @include s.display-flex-direction(column, stretch);
+    gap: 8px;
+}
+
+.entry {
+    padding: 12px 14px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    @include s.display-flex-direction(column, flex-start);
+    gap: 6px;
+}
+
+.entryTop {
+    @include s.display-center(flex-start, center);
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.selector {
+    font-family: monospace;
+    font-size: 13px;
+    color: s.$main-color;
+}
+
+.keyType {
+    font-size: 11px;
+    color: s.$grey;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.keyOk {
+    font-size: 11px;
+    color: s.$success-color;
+    background: rgba(s.$success-color, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.keyWeak {
+    font-size: 11px;
+    color: #ff9800;
+    background: rgba(#ff9800, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.keyBits {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+}

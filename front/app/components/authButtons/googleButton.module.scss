@@ -1,0 +1,24 @@
+@use "../../style/styles.module.scss" as styles;
+
+.google_btn {
+    font-family: var(--MontserratRegular);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 100%;
+    height: 64px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #4bb749;
+    border-radius: 32px;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}

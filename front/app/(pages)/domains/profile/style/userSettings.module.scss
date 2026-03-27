@@ -1,0 +1,63 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+        max-width: 543px;
+
+        label {
+            font-size: 16px;
+        }
+
+        .form_link {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            text-decoration: none;
+            color: s.$main-color;
+        }
+
+        .send_btn {
+            position: absolute;
+            bottom: -20px;
+            right: 50px;
+            // width: 251px;
+            // height: 56px;
+            border-radius: 30px;
+            border-width: 1px;
+            padding: 10px 50px;
+            background-color: s.$main-color;
+            color: s.$text_color;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 28px;
+            letter-spacing: 0%;
+            opacity: 0.3;
+            cursor: pointer;
+            &:hover {
+                opacity: 1;
+            }
+            &.active {
+                opacity: 1;
+            }
+
+            @include s.mediaTo(s.$size960) {
+                bottom: -40px;
+                width: 100%;
+                right: 0px;
+                max-width: 300px;
+            }
+
+            @include s.mediaTo(400px) {
+                font-size: 18px;
+            }
+        }
+    }
+}

@@ -1,0 +1,212 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.filterInput {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: s.$border-radius;
+    padding: 10px 14px;
+    font-size: s.$small-font-size;
+    color: s.$text_color;
+    width: 100%;
+    transition: border-color s.$transition;
+
+    &::placeholder {
+        color: s.$grey;
+    }
+    &:focus {
+        outline: none;
+        border-color: s.$main-color;
+    }
+}
+
+// ─── Desktop table ────────────────────────────────────────────────────────────
+.tableWrap {
+    overflow-x: auto;
+    border-radius: s.$border-radius;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    @include s.mediaTo(s.$size576) {
+        display: none;
+    }
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: s.$small-font-size;
+
+    th {
+        text-align: left;
+        padding: 10px 14px;
+        color: s.$grey;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        background-color: rgba(255, 255, 255, 0.02);
+        white-space: nowrap;
+    }
+
+    td {
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        vertical-align: middle;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+}
+
+.rowDim td {
+    opacity: 0.4;
+}
+
+.tdMono {
+    font-family: monospace;
+    font-size: 13px;
+    color: s.$main-color;
+}
+.tdTtl {
+    font-family: monospace;
+    font-size: 12px;
+    color: s.$grey;
+}
+
+// ─── Mobile cards ─────────────────────────────────────────────────────────────
+.cardList {
+    display: none;
+
+    @include s.mediaTo(s.$size576) {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: s.$border-radius;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cardDim {
+    opacity: 0.4;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.cardIp {
+    font-family: monospace;
+    font-size: 13px;
+    color: s.$main-color;
+    font-weight: 600;
+}
+
+.cardMeta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.cardLocation {
+    font-size: 12px;
+    color: s.$grey;
+}
+
+.cardTtl {
+    font-family: monospace;
+    font-size: 11px;
+    color: rgba(s.$grey, 0.6);
+}
+
+// ─── Shared record styles ─────────────────────────────────────────────────────
+.recordsList {
+    @include s.display-flex-direction(column, flex-start);
+    gap: 3px;
+}
+
+.recordRow {
+    @include s.display-center(flex-start, center);
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.recType {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 4px;
+    border: 1px solid;
+    flex-shrink: 0;
+    font-family: monospace;
+    letter-spacing: 0.04em;
+}
+
+.priority {
+    background-color: rgba(#ff9800, 0.15);
+    border: 1px solid rgba(#ff9800, 0.3);
+    color: #ff9800;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 11px;
+    font-family: monospace;
+    flex-shrink: 0;
+}
+
+.recValue {
+    font-family: monospace;
+    font-size: 13px;
+    color: s.$color2;
+    word-break: break-all;
+}
+
+.noRecord {
+    color: s.$grey;
+    font-size: 12px;
+    font-style: italic;
+}
+
+// ─── Badges & status ─────────────────────────────────────────────────────────
+.badge {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+}
+
+.badge_error {
+    border-color: rgba(s.$danger-color, 0.4);
+    color: s.$danger-color;
+}
+.badge_timeout {
+    border-color: rgba(#ffc107, 0.4);
+    color: #ffc107;
+}
+
+// ─── Response time ────────────────────────────────────────────────────────────
+.rtFast {
+    color: s.$success-color;
+    font-family: monospace;
+    font-size: 12px;
+}
+.rtMed {
+    color: #ffc107;
+    font-family: monospace;
+    font-size: 12px;
+}
+.rtSlow {
+    color: s.$danger-color;
+    font-family: monospace;
+    font-size: 12px;
+}

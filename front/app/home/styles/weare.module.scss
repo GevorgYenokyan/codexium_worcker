@@ -1,0 +1,215 @@
+@use "../../style/styles.module.scss" as s;
+
+.weAre {
+  position: relative;
+  overflow: hidden;
+  padding: 200px 0 125px;
+
+  .backgroundReveal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    pointer-events: none;
+  }
+
+  .imageError {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: red;
+    font-size: 14px;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .left {
+    position: absolute;
+    top: 0;
+    left: -35px;
+    width: 200px;
+    height: 320px;
+    z-index: 1;
+    transition: 0.6s;
+    transition-timing-function: cubic-bezier(0, 2, 1, 2);
+    @include s.mediaTo(s.$size960) {
+      width: 150px;
+      height: 205px;
+      left: -30px;
+    }
+    @include s.mediaTo(s.$size480) {
+      width: 90px;
+      height: 145px;
+      left: -15px;
+    }
+    &:hover {
+      transform: translateX(10px);
+    }
+  }
+
+  .right {
+    position: absolute;
+    bottom: 0;
+    right: -35px;
+    width: 200px;
+    height: 320px;
+    z-index: 1;
+    transition: 0.6s;
+    transition-timing-function: cubic-bezier(0, 2, 1, 2);
+    @include s.mediaTo(s.$size960) {
+      width: 150px;
+      height: 205px;
+      right: -35px;
+    }
+    @include s.mediaTo(s.$size480) {
+      width: 90px;
+      right: -15px;
+      height: 145px;
+    }
+    &:hover {
+      transform: translateX(-10px);
+    }
+  }
+
+  .weAreContainer {
+    max-width: s.$container;
+    margin: 0 auto;
+    padding: s.$padding;
+    justify-content: flex-end;
+    @include s.display-flex-direction(column, flex-end);
+    @include s.mediaTo(1200px) {
+      padding: 0 16px;
+    }
+    @include s.mediaTo(s.$size480) {
+      @include s.display-flex-direction(column-reverse, flex-start);
+    }
+
+    .weText {
+      display: flex;
+      gap: 5px;
+      justify-content: flex-start;
+      width: 100%;
+      margin-bottom: 115px;
+      max-width: 470px;
+      @include s.mediaTo(s.$size480) {
+        margin-bottom: 30px;
+      }
+
+      .line {
+        transform: translateY(-3px);
+        flex: 0 0 4px;
+        height: 24px;
+        background-color: s.$main-color;
+      }
+
+      p {
+        @include s.largeText;
+        @include s.mediaTo(1150px) {
+          @include s.text-style;
+        }
+        .line1 {
+          display: inline-block;
+          white-space: pre-wrap;
+          width: 100%;
+        }
+      }
+    }
+
+    .animationContainer {
+      gap: 35px;
+      width: 100%;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      @include s.display-flex-direction(column, flex-start);
+      @include s.mediaTo(s.$size480) {
+        padding-bottom: 70px;
+      }
+
+      p {
+        @include s.h3;
+        position: relative;
+        z-index: 2;
+      }
+
+      .animation {
+        width: 100%;
+        position: relative;
+        z-index: 1;
+
+        .codexium {
+          animation-name: show;
+          animation-duration: 1.55s;
+          animation-timing-function: linear;
+          animation-fill-mode: forwards;
+          animation-delay: 0.15s;
+          @include s.proportion(12.05%, 100%);
+        }
+
+        .hide {
+          width: calc(100% + 150px);
+          height: 105%;
+          background-color: s.$black;
+          position: absolute;
+          clip-path: polygon(
+            100% 0,
+            100% 50%,
+            100% 100%,
+            0% 100%,
+            3% 50%,
+            0% 0
+          );
+          z-index: 1;
+          top: 50%;
+          left: 0;
+          transform: translate(-110px, -50%);
+          animation-name: toLeft;
+          animation-duration: 1.5s;
+          animation-delay: 0.1s;
+          animation-timing-function: linear;
+          animation-fill-mode: forwards;
+        }
+
+        .vector {
+          width: 9.5%;
+          object-fit: cover;
+          height: 100%;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translate(-110px, -50%);
+          z-index: 2;
+          animation-name: toLeft;
+          animation-delay: 0.15s;
+          animation-duration: 1.5s;
+          animation-timing-function: linear;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes toLeft {
+  0% {
+    left: 0;
+    transform: translate(-110px, -50%);
+  }
+  100% {
+    left: 100%;
+    transform: translate(0, -50%);
+  }
+}

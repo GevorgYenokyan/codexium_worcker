@@ -1,0 +1,56 @@
+@use "sass:math";
+@use "../../../style/styles.module.scss" as s;
+
+// Animation for subtle button interactions
+@keyframes button-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.buttonContainer {
+  gap: 20px;
+  @include s.display-center(center, center);
+
+  .button {
+    width: 52px;
+    height: 52px;
+    font-size: 40px;
+    line-height: 52px;
+    text-align: center;
+    color: s.$main-color;
+    background-color: #f4fffe1a;
+    border-radius: 6px;
+    border: 0;
+    margin-top: 140px;
+    cursor: pointer;
+    transition: s.$transition;
+    @include s.display-center(center, center);
+    @include s.mediaTo(s.$size960) {
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+    margin-top: 60px;
+    }
+
+    &:hover {
+      background-color: s.$main-color;
+      color: s.$white;
+      filter: brightness(80%);
+    }
+    &.active {
+      background-color: s.$main-color;
+      color: s.$white;
+    }
+    &.disabled {
+      display: none;
+    }
+  }
+}
+// Base styles for the pagination container

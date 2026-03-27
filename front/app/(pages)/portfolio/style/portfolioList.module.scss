@@ -1,0 +1,176 @@
+@use "../../../style/styles.module.scss" as s;
+
+.container {
+  max-width: s.$container;
+  margin: 0 auto;
+  padding: s.$padding;
+  color: s.$text_color;
+  @include s.mediaTo(1200px) {
+    padding: 0 20px;
+  }
+  @include s.mediaTo(s.$size960) {
+    padding: 0 16px;
+  }
+  h2 {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 50px;
+    @include s.mediaTo(s.$size960) {
+      gap: 6px;
+    }
+    .line {
+      width: 4px;
+      height: 68px;
+      background-color: s.$main-color;
+      @include s.mediaTo(s.$size960) {
+        height: 52px;
+      }
+    }
+    b {
+      color: s.$text_color;
+      font-size: 48px;
+      line-height: s.$standart-line-height;
+      @include s.mediaTo(s.$size960) {
+        font-size: 24px;
+      }
+
+      .line1 {
+        display: inline-block;
+        white-space: pre-wrap;
+        width: 100%;
+      }
+    }
+  }
+  .list_container {
+    margin: 0 -25px;
+    flex-wrap: wrap;
+    @include s.display-center(flex-start, flex-start);
+    @include s.mediaTo(1200px) {
+      margin: 0 -20px;
+    }
+    @include s.mediaTo(s.$size960) {
+      margin: 0 -16px;
+    }
+    .project {
+      padding: 25px;
+      flex: 0 0 33.33333%;
+      @include s.mediaTo(1200px) {
+        padding: 20px;
+      }
+      @include s.mediaTo(s.$size960) {
+        padding: 16px;
+      }
+      @include s.mediaTo(s.$size720) {
+        flex: 0 0 50%;
+      }
+      @include s.mediaTo(s.$size640) {
+        flex: 0 0 100%;
+      }
+      .projectItem {
+        width: 100%;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: s.$transition;
+        position: relative;
+        @include s.display-center(center, center);
+        &:hover .projectHover {
+          opacity: 1;
+          background-color: rgba($color: #040504, $alpha: 0.7);
+        }
+        &:hover img {
+          filter: blur(1px);
+        }
+        .projectImage {
+          @include s.proportion(64%, 100%);
+        }
+        .projectHover {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          background-color: rgba($color: #040504, $alpha: 0);
+          border: 1px solid s.$main-color;
+          z-index: 2;
+          transition: s.$transition;
+          border-radius: 15px;
+          cursor: pointer;
+          @include s.display-center(center, center);
+
+          h2 {
+            color: s.$text_color;
+            font-size: 26px;
+            line-height: s.$standart-line-height;
+            margin: 0;
+            text-align: center;
+            @include s.mediaTo(s.$size960) {
+              font-size: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .popup {
+    position: absolute;
+    top: 290px;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: none;
+    z-index: 23;
+    padding: 0 80px;
+    transition: s.$transition;
+    // align-items: center;
+    @include s.mediaTo(1200px) {
+      padding: 0 20px;
+    }
+    @include s.mediaTo(s.$size960) {
+      top: 180px;
+      padding: 0 16px;
+    }
+    .popupContainer {
+      position: relative;
+      border: 1px solid rgb(0, 177, 21);
+      display: flex;
+      width: 100%;
+      height: 100%;
+      background-color: s.$black;
+      border-radius: 15px;
+
+      max-width: 1920px;
+      margin: 0 auto;
+      justify-content: center;
+      .close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: s.$main-color;
+        padding: 10px;
+        transition: s.$transition;
+        filter: brightness(100%);
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        border-radius: 5px;
+        color: s.$white;
+        font-size: 40px;
+        @include s.display-center(center, center);
+        @include s.mediaTo(s.$size960) {
+          width: 40px;
+          height: 40px;
+          font-size: 30px;
+        }
+        &:hover {
+          filter: brightness(97%);
+        }
+      }
+    }
+    &.open {
+      display: block;
+    }
+  }
+}

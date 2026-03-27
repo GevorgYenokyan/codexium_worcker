@@ -1,0 +1,82 @@
+@use "../../../style/styles.module.scss" as s;
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  gap: 32px;
+  margin: 0 auto;
+  @include s.mediaTo(1200px) {
+    padding: 0 20px;
+  }
+  @include s.mediaTo(s.$size960) {
+    padding: 0 16px;
+  }
+
+  @include s.mediaTo(s.$size960) {
+    padding: 0px;
+  }
+  // padding: 10px 0;
+
+  h2 {
+    align-self: flex-start;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 60px;
+    @include s.mediaTo(s.$size960) {
+      gap: 6px;
+    }
+    .line {
+      width: 4px;
+      height: 68px;
+      background-color: s.$main-color;
+      @include s.mediaTo(s.$size960) {
+        height: 40px;
+      }
+    }
+    b {
+      color: s.$text_color;
+      font-size: 48px;
+      line-height: s.$standart-line-height;
+      @include s.mediaTo(s.$size960) {
+        font-size: 24px;
+      }
+      .line1 {
+        display: inline-block;
+        white-space: pre-wrap;
+        width: 100%;
+      }
+    }
+  }
+
+  .text_header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    h3 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      color: s.$text_color;
+    }
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      color: #a1a1a1;
+    }
+  }
+  .content {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    @include s.mediaTo(s.$size960) {
+      flex-direction: column;
+    }
+  }
+}

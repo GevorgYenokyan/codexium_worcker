@@ -1,0 +1,27 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    width: 100%;
+}
+
+.item {
+    @include s.display-flex-direction(column, flex-start);
+    gap: 2px;
+}
+
+.label {
+    font-size: 11px;
+    color: s.$grey;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.value {
+    font-size: s.$small-font-size;
+    color: s.$color2;
+    font-weight: 500;
+    word-break: break-all;
+}

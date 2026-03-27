@@ -1,0 +1,16 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.notFound {
+    color: s.$grey;
+    font-size: s.$small-font-size;
+    font-style: italic;
+}
+
+.ok {
+    font-size: s.$small-font-size;
+    color: s.$color2;
+
+    b {
+        color: s.$main-color;
+    }
+}

@@ -1,0 +1,86 @@
+@use "../../../style/styles.module.scss" as s;
+.blog {
+  position: relative;
+  padding: 200px 80px 125px;
+  max-width: s.$container;
+  margin: 0 auto;
+  @include s.mediaTo(1200px) {
+    padding: 200px 20px 125px;
+  }
+  @include s.mediaTo(s.$size960) {
+    padding: 100px 16px 0;
+  }
+  h2 {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+    @include s.display-center(flex-start, center);
+    @include s.mediaTo(s.$size960) {
+      gap: 20px;
+    }
+    > div {
+      gap: 16px;
+      @include s.display-center(flex-start, center);
+      @include s.mediaTo(s.$size960) {
+        width: 100%;
+      }
+      .line {
+        width: 4px;
+        height: 68px;
+        background-color: s.$main-color;
+        @include s.mediaTo(s.$size960) {
+          height: 40px;
+        }
+      }
+      .blogTitle {
+        color: s.$text_color;
+        font-size: 26px;
+        line-height: s.$standart-line-height;
+        @include s.mediaTo(s.$size960) {
+          font-size: 16px;
+        }
+      }
+      p {
+        color: s.$text_color;
+        font-size: 48px;
+        line-height: s.$standart-line-height;
+        @include s.mediaTo(s.$size960) {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+  .projectImage {
+    margin: 80px 0;
+    border-radius: 20px;
+    @include s.proportion(68.25%, 100%);
+    @include s.mediaTo(s.$size960) {
+      margin: 60px 0;
+    }
+    @include s.mediaTo(s.$size375) {
+      margin: 30px 0;
+    }
+  }
+  h4 {
+    color: s.$text_color;
+    font-size: 48px;
+    line-height: s.$standart-line-height;
+    @include s.mediaTo(s.$size960) {
+      font-size: 24px;
+    }
+  }
+  .desc {
+    color: s.$text_color;
+    font-size: 36px;
+    line-height: s.$standart-line-height;
+    margin-top: 40px;
+    @include s.mediaTo(s.$size960) {
+      font-size: 16px;
+      margin-top: 30px;
+    }
+    @include s.mediaTo(s.$size375) {
+      margin-top: 16px;
+    }
+  }
+}

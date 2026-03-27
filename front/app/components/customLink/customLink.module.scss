@@ -1,0 +1,10 @@
+@use "../../style/styles.module.scss" as styles;
+
+.link {
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.active {
+    font-weight: bold;
+}

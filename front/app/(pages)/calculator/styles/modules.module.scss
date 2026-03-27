@@ -1,0 +1,64 @@
+@use "../../../style/styles.module.scss" as s;
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 1rem;
+    margin-top: 25px;
+}
+
+.module_card {
+    width: 48%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 60px;
+    @include s.mediaTo(s.$size960) {
+        width: 100%;
+    }
+
+    h4 {
+        width: 100%;
+        max-width: 450px;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #ffffff;
+        @include s.mediaTo(500px) {
+            font-size: 20px;
+        }
+    }
+    .arm {
+        font-size: 22px;
+        line-height: 28px;
+        @include s.mediaTo(440px) {
+            font-size: 18px;
+        }
+
+        @include s.mediaTo(400px) {
+            font-size: 16px;
+        }
+    }
+    .check {
+        width: 40px;
+        height: 40px;
+        opacity: 0.5;
+        border-radius: 6px;
+        border: 2px solid #4bb749;
+        @include s.mediaTo(460px) {
+            width: 30px;
+            height: 30px;
+        }
+
+        &.active {
+            // background-color: #4bb749;
+            border: none;
+            background-image: url(../../../../public/icons/select.png);
+            background-size: 100%;
+            opacity: 1;
+        }
+    }
+}

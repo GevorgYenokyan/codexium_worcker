@@ -1,0 +1,114 @@
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #f4fffe;
+    margin-bottom: 5px;
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.base {
+    width: 100%;
+    padding: 10px;
+    width: 100%;
+    height: 56px;
+    background: #040504;
+    border-radius: 12px;
+    color: #f4fffe;
+    border-width: 1px;
+    // border: 1px solid #f4fffe80;
+    transition: border-color 0.3s ease;
+}
+
+.input {
+    background: transparent;
+    &:active {
+        border: 1px solid #4bb749 !important;
+    }
+    &.default {
+        border: 1px solid #ccc;
+        &:focus {
+            border-color: #4bb749;
+        }
+    }
+    &.outlined {
+        border: 2px solid #4bb749;
+        // background: white;
+        &:focus {
+            border-color: #4bb749;
+        }
+    }
+    &.filled {
+        background: transparent !important;
+        border: none;
+        &:focus {
+            background: transparent;
+        }
+    }
+    &.error {
+        border-color: red;
+    }
+}
+
+.iconLeft,
+.iconRight {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 100%;
+    color: #888;
+    cursor: pointer;
+}
+
+.iconLeft {
+    left: 10px;
+}
+
+.iconRight {
+    right: 10px;
+}
+
+.errorText {
+    color: red;
+    font-size: 12px;
+}
+
+.helperText {
+    color: white;
+    font-size: 12px;
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.size-sm {
+    font-size: 12px;
+    padding: 8px;
+}
+
+.size-md {
+    font-size: 16px;
+    padding: 10px;
+}
+
+.size-lg {
+    font-size: 20px;
+    padding: 12px;
+}

@@ -1,0 +1,67 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.bubble {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    padding: 16px 20px;
+    min-width: 90px;
+}
+
+.num {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.label {
+    font-size: 11px;
+    color: s.$grey;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+// ─── Variants ─────────────────────────────────────────────────────────────────
+.expired {
+    background-color: rgba(s.$danger-color, 0.1);
+    border-color: rgba(s.$danger-color, 0.3);
+    .num {
+        color: s.$danger-color;
+    }
+}
+
+.expiringSoon {
+    background-color: rgba(#ffc107, 0.1);
+    border-color: rgba(#ffc107, 0.3);
+    .num {
+        color: #ffc107;
+    }
+}
+
+.expiringWarn {
+    background-color: rgba(#ff9800, 0.08);
+    border-color: rgba(#ff9800, 0.25);
+    .num {
+        color: #ff9800;
+    }
+}
+
+.expiringOk {
+    background-color: rgba(s.$success-color, 0.08);
+    border-color: rgba(s.$success-color, 0.2);
+    .num {
+        color: s.$success-color;
+    }
+}
+
+.country {
+    background-color: rgba(#64b5f6, 0.08);
+    border-color: rgba(#64b5f6, 0.25);
+    .num {
+        color: #64b5f6;
+    }
+}

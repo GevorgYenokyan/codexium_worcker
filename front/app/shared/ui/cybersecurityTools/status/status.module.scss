@@ -1,0 +1,54 @@
+@use "../../../../style/styles.module.scss" as s;
+
+// ─── Dot ──────────────────────────────────────────────────────────────────────
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.dot_pass,
+.dot_present {
+    background-color: s.$success-color;
+}
+.dot_fail,
+.dot_missing {
+    background-color: s.$danger-color;
+}
+.dot_warning {
+    background-color: #ffc107;
+}
+.dot_info {
+    background-color: #64b5f6;
+}
+
+// ─── Badge ────────────────────────────────────────────────────────────────────
+.badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    text-transform: capitalize;
+    flex-shrink: 0;
+}
+
+.badge_pass,
+.badge_present {
+    border-color: rgba(s.$success-color, 0.4);
+    color: s.$success-color;
+}
+.badge_fail,
+.badge_missing {
+    border-color: rgba(s.$danger-color, 0.4);
+    color: s.$danger-color;
+}
+.badge_warning {
+    border-color: rgba(#ffc107, 0.4);
+    color: #ffc107;
+}
+.badge_info {
+    border-color: rgba(#64b5f6, 0.4);
+    color: #64b5f6;
+}

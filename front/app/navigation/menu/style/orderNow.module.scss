@@ -1,0 +1,125 @@
+@use "../../../style/styles.module.scss" as s;
+.container {
+    top: 100px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 100000000000;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+    background: #000000cc;
+    backdrop-filter: blur(20px);
+    @include s.mediaTo(700px) {
+        padding: 100px 20px;
+    }
+    .modal {
+        top: 50px;
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        gap: 25px;
+
+        .title {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            gap: 20px;
+            h2 {
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 32px;
+                letter-spacing: 0%;
+                color: s.$text_color;
+                @include s.mediaTo(500px) {
+                    font-size: 18px;
+                }
+            }
+
+            .close {
+                right: 20px;
+                top: 20px;
+                width: 32px;
+                height: 32px;
+                background-color: s.$main-color;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px;
+                transition: 0.3s;
+                cursor: pointer;
+                opacity: 0.3;
+                transition: 0.3s;
+                &:hover {
+                    opacity: 1;
+                }
+
+                img {
+                    width: 38px;
+                    height: 38px;
+                }
+            }
+        }
+
+        .order {
+            display: flex;
+            gap: 20px;
+            @include s.mediaTo(550px) {
+                flex-direction: column;
+            }
+
+            .cardHeader {
+                width: 100%;
+                background: #4bb7490d;
+                padding: 24px 16px;
+                border: 1px solid #333333;
+                box-shadow: 0px 1px 2px 0px #1a1a1a;
+                border-radius: 12px;
+                text-decoration: none;
+                cursor: pointer;
+                @include s.display-center(space-between, center);
+                @include s.mediaTo(450px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                gap: 10px;
+                .card_title {
+                    @include s.display-flex-direction(column, start);
+
+                    h3 {
+                        font-weight: 500;
+                        font-size: 20px;
+                        line-height: 24px;
+                        letter-spacing: -0.6px;
+                        color: s.$text_color;
+                        @include s.mediaTo(450px) {
+                            font-size: 18px;
+                        }
+                    }
+
+                    p {
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 20px;
+                        color: #a6a6a6;
+                        @include s.mediaTo(450px) {
+                            font-size: 10px;
+                        }
+                    }
+                }
+
+                .badge {
+                    padding: 3px 11px;
+                    background: #1cca5b1a;
+                    border-radius: 10px;
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: s.$main-color;
+                }
+            }
+        }
+    }
+}

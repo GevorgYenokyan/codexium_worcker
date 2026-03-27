@@ -1,0 +1,177 @@
+name: Deploy Codexium
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Stop containers before deployment
+              uses: appleboy/ssh-action@master
+              with:
+                  host: ${{ secrets.HOST }}
+                  username: ${{ secrets.USERNAME }}
+                  key: ${{ secrets.SSH_KEY }}
+                  script: |
+                      export PATH=$PATH:/snap/bin
+                      echo "🛑 Stopping containers..."
+                      cd ${{ secrets.PROJECT_PATH }}
+                      docker compose down || true
+
+            - name: Copy files to server
+              uses: appleboy/scp-action@master
+              with:
+                  host: ${{ secrets.HOST }}
+                  username: ${{ secrets.USERNAME }}
+                  key: ${{ secrets.SSH_KEY }}
+                  source: "."
+                  target: ${{ secrets.PROJECT_PATH }}
+                  strip_components: 1
+
+            - name: Rebuild and restart containers
+              id: deploy_step
+              uses: appleboy/ssh-action@master
+              with:
+                  host: ${{ secrets.HOST }}
+                  username: ${{ secrets.USERNAME }}
+                  key: ${{ secrets.SSH_KEY }}
+                  script: |
+                      export PATH=$PATH:/snap/bin
+                      echo "🚀 Starting deployment..."
+                      cd ${{ secrets.PROJECT_PATH }}
+
+                      if docker compose up -d --build; then
+                          echo "✅ Containers started successfully"
+                          echo "📊 Container status:"
+                          docker compose ps
+                          
+                          # Очистка неиспользуемых образов
+                          docker image prune -f
+                          
+                          echo "✅ Deployment completed successfully."
+                      else
+                          echo "❌ Deployment failed."
+                          exit 1
+                      fi
+
+            - name: Mark deploy as successful
+              if: ${{ success() && steps.deploy_step.outcome == 'success' }}
+              run: echo "✅ Deploy completed successfully!"
+
+            - name: Mark deploy as failed
+              if: ${{ failure() || steps.deploy_step.outcome == 'failure' }}
+              run: echo "❌ Deploy failed. Check logs above."
+
+# name: Deploy Codexium
+
+# on:
+#     push:
+#         branches:
+#             - main
+
+# jobs:
+#     deploy:
+#         runs-on: ubuntu-latest
+
+#         steps:
+#             - name: Checkout repository
+#               uses: actions/checkout@v4
+
+#             - name: Copy files to server
+#               uses: appleboy/scp-action@master
+#               with:
+#                   host: ${{ secrets.HOST }}
+#                   username: ${{ secrets.USERNAME }}
+#                   key: ${{ secrets.SSH_KEY }}
+#                   source: "."
+#                   target: ${{ secrets.PROJECT_PATH }}
+#                   strip_components: 1
+
+#             - name: Rebuild and restart containers
+#               id: deploy_step
+#               uses: appleboy/ssh-action@master
+#               with:
+#                   host: ${{ secrets.HOST }}
+#                   username: ${{ secrets.USERNAME }}
+#                   key: ${{ secrets.SSH_KEY }}
+#                   script: |
+#                       echo "🚀 Starting deployment..."
+#                       cd ${{ secrets.PROJECT_PATH }}
+#                       if docker compose up -d --build; then
+#                           echo "✅ Deployment completed successfully."
+#                       else
+#                           echo "❌ Deployment failed."
+#                           exit 1
+#                       fi
+
+#             - name: Mark deploy as successful
+#               if: ${{ success() && steps.deploy_step.outcome == 'success' }}
+#               run: echo "✅ Deploy completed successfully!"
+
+#             - name: Mark deploy as failed
+#               if: ${{ failure() || steps.deploy_step.outcome == 'failure' }}
+#               run: echo "❌ Deploy failed. Check logs above."
+#               name: Deploy Codexium (Safe for Poste.io)
+
+# on:
+#     push:
+#         branches:
+#             - main
+
+# jobs:
+#     deploy:
+#         runs-on: ubuntu-latest
+
+#         steps:
+#             - name: 🧾 Checkout repository
+#               uses: actions/checkout@v4
+
+#             - name: 📤 Copy files to server
+#               uses: appleboy/scp-action@master
+#               with:
+#                   host: ${{ secrets.HOST }}
+#                   username: ${{ secrets.USERNAME }}
+#                   key: ${{ secrets.SSH_KEY }}
+#                   source: "."
+#                   target: ${{ secrets.PROJECT_PATH }}
+#                   strip_components: 1
+
+#             - name: 🚀 Deploy (safe rebuild)
+#               id: deploy_step
+#               uses: appleboy/ssh-action@master
+#               with:
+#                   host: ${{ secrets.HOST }}
+#                   username: ${{ secrets.USERNAME }}
+#                   key: ${{ secrets.SSH_KEY }}
+#                   script: |
+#                       set -e
+#                       cd ${{ secrets.PROJECT_PATH }}
+
+#                       echo "🔎 Checking running containers..."
+#                       docker ps
+
+#                       echo "🧹 Cleaning up old dangling images..."
+#                       docker image prune -f
+
+#                       echo "🔨 Rebuilding only app containers (no cache)..."
+#                       docker compose build --no-cache front back
+
+#                       echo "🔄 Restarting only updated containers..."
+#                       docker compose up -d front back
+
+#                       echo "✅ Deployment completed successfully (poste.io untouched)."
+
+#             - name: ✅ Mark deploy as successful
+#               if: ${{ success() && steps.deploy_step.outcome == 'success' }}
+#               run: echo "✅ Deploy completed successfully!"
+
+#             - name: ❌ Mark deploy as failed
+#               if: ${{ failure() || steps.deploy_step.outcome == 'failure' }}
+#               run: echo "❌ Deploy failed. Check logs above."

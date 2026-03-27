@@ -1,0 +1,241 @@
+@use "../../style/styles.module.scss" as s;
+.development {
+  position: relative;
+  overflow: hidden;
+  padding: 200px 0 125px;
+  @include s.mediaTo(s.$size960) {
+    padding: 100px 0 0;
+  }
+  .right {
+    position: absolute;
+    top: 45%;
+    right: -35px;
+    width: 200px;
+    height: 320px;
+    z-index: 1;
+    transition: 0.6s;
+    transition-timing-function: cubic-bezier(0, 2, 1, 2);
+    @include s.mediaTo(s.$size960) {
+      width: 150px;
+      height: 205px;
+      right: -35px;
+    }
+    @include s.mediaTo(s.$size480) {
+      width: 90px;
+      right: -15px;
+      height: 145px;
+    }
+    &:hover {
+      transform: translateX(-10px);
+    }
+  }
+}
+.business {
+  width: 100%;
+  background-color: #ffffff33;
+  margin-top: 70px;
+  position: relative;
+  overflow: hidden;
+  .rightGreen {
+    position: absolute;
+    top: 50%;
+    right: -17px;
+    height: 100%;
+    transform: translateY(-50%);
+    @include s.mediaTo(1200px) {
+      filter: brightness(80%);
+    }
+    @include s.mediaTo(s.$size960) {
+      transform: translateY(-50%) scale(1.2);
+    }
+  }
+  .businessContainer {
+    max-width: s.$container;
+    margin: 0 auto;
+    padding: 26px 80px;
+    color: s.$text_color;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.4em;
+    z-index: 22;
+    position: relative;
+    @include s.mediaTo(1200px) {
+      padding: 26px 20px;
+    }
+    @include s.mediaTo(s.$size960) {
+      font-size: 20px;
+      font-weight: 500;
+      padding: 26px 16px;
+    }
+  }
+}
+
+.subTitle {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: s.$standart-line-height;
+  color: s.$main-color;
+  font-weight: 500;
+  margin: 30px 0 24px;
+  @include s.mediaTo(s.$size960) {
+    font-size: 24px;
+  }
+}
+.container {
+  max-width: s.$container;
+  margin: 0 auto;
+  padding: s.$padding;
+  color: s.$text_color;
+  @include s.mediaTo(1200px) {
+    padding: 0 20px;
+  }
+  @include s.mediaTo(s.$size960) {
+    padding: 0 16px;
+  }
+  h2 {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 50px;
+    @include s.mediaTo(s.$size960) {
+      gap: 6px;
+    }
+    .line {
+      width: 4px;
+      height: 68px;
+      background-color: s.$main-color;
+      @include s.mediaTo(s.$size960) {
+        height: 40px;
+      }
+    }
+    b {
+      color: s.$text_color;
+      font-size: 48px;
+      line-height: s.$standart-line-height;
+      @include s.mediaTo(s.$size960) {
+        font-size: 24px;
+      }
+      
+      .line1 {
+        display: inline-block;
+        white-space: pre-wrap;
+        width: 100%;
+      }
+    }
+  }
+  .description {
+    .desc {
+      margin-bottom: 60px;
+      font-size: 20px;
+      line-height: 38px;
+      font-weight: s.$font-weight;
+      @include s.mediaTo(s.$size980) {
+        font-size: 17px;
+      }
+      @include s.mediaTo(s.$size960) {
+        font-size: s.$standart-font-size;
+      }
+    }
+    .processContainer {
+      justify-content: center;
+      gap: 40px;
+      counter-reset: serialnumber;
+      @include s.display-flex-direction(column, flex-start);
+      .process {
+        counter-increment: serialnumber;
+        width: 55%;
+        gap: 10px;
+        flex-grow: 3;
+        flex-shrink: 3;
+        @include s.display-center(flex-start, flex-start);
+        @include s.mediaTo(1200px) {
+          width: 65%;
+        }
+        @include s.mediaTo(s.$size840) {
+          width: 80%;
+        }
+        @include s.mediaTo(s.$size640) {
+          width: 100%;
+        }
+        @include s.mediaTo(s.$size640) {
+          flex-wrap: wrap;
+        }
+        &:nth-child(2n) {
+          width: 45%;
+          flex-shrink: 0;
+          flex-grow: 0;
+          align-self: flex-end;
+          @include s.mediaTo(1200px) {
+            width: 55%;
+          }
+          @include s.mediaTo(s.$size840) {
+            width: 80%;
+          }
+          @include s.mediaTo(s.$size640) {
+            width: 100%;
+          }
+        }
+        &:before {
+          content: counter(serialnumber, decimal-leading-zero);
+          display: block;
+          margin-right: 12px;
+          font-size: 96px;
+          line-height: 96px;
+          font-weight: 900;
+          color: s.$main-color;
+          opacity: 0.5;
+          transform: translateY(-10px);
+          @include s.mediaTo(s.$size840) {
+            font-size: 60px;
+            line-height: 60px;
+          }
+          @include s.mediaTo(s.$size640) {
+            font-size: 48px;
+            line-height: 48px;
+            transform: translateY(0);
+          }
+        }
+        h4 {
+          margin-bottom: 20px;
+          @include s.h3;
+        }
+        p {
+          font-size: 24px;
+          line-height: 140%;
+          @include s.mediaTo(s.$size960) {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    h5 {
+      margin: 150px 0 20px;
+      @include s.h3;
+      @include s.mediaTo(s.$size840) {
+        margin: 70px 0 20px;
+        font-size: 20px;
+      }
+    }
+    .chooseContainer {
+      gap: 10px;
+      @include s.display-flex-direction(column, flex-start);
+      .chooseItem {
+        gap: 5px;
+        @include s.display-center(flex-start, flex-start);
+        .check {
+          @include s.mediaTo(s.$size600) {
+            width: 24px;
+            height: 24px;
+          }
+        }
+        p {
+          font-size: 24px;
+          line-height: s.$standart-line-height;
+          @include s.mediaTo(s.$size840) {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}

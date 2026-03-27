@@ -1,0 +1,26 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.banner {
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: s.$small-font-size;
+    border: 1px solid transparent;
+}
+
+.ok {
+    background-color: rgba(s.$success-color, 0.07);
+    border-color: rgba(s.$success-color, 0.25);
+    color: s.$success-color;
+}
+
+.partial {
+    background-color: rgba(#ffc107, 0.07);
+    border-color: rgba(#ffc107, 0.25);
+    color: #ffc107;
+}
+
+.none {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: s.$grey;
+}

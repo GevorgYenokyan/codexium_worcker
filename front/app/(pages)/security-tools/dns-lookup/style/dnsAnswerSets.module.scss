@@ -1,0 +1,62 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.wrap {
+    background-color: rgba(#ffc107, 0.05);
+    border: 1px solid rgba(#ffc107, 0.2);
+    border-radius: s.$border-radius;
+    padding: 14px 16px;
+    @include s.display-flex-direction(column, stretch);
+    gap: 8px;
+}
+
+.title {
+    font-size: s.$small-font-size;
+    color: #ffc107;
+    margin-bottom: 4px;
+}
+
+.row {
+    @include s.display-center(flex-start, flex-start);
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    flex-wrap: wrap;
+}
+
+.rowMain {
+    background-color: rgba(s.$success-color, 0.06);
+    border: 1px solid rgba(s.$success-color, 0.2);
+}
+
+.rowOld {
+    background-color: rgba(#ffc107, 0.06);
+    border: 1px solid rgba(#ffc107, 0.2);
+}
+
+.count {
+    font-size: 12px;
+    font-weight: 700;
+    color: s.$color2;
+    white-space: nowrap;
+}
+
+.label {
+    font-size: 11px;
+    color: s.$grey;
+    white-space: nowrap;
+}
+
+.records {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.value {
+    font-family: monospace;
+    font-size: 13px;
+    background-color: rgba(255, 255, 255, 0.06);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: s.$color2;
+}

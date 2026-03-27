@@ -1,0 +1,55 @@
+@use "../../../style/styles.module.scss" as s;
+.container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    gap: 50px;
+
+    .items {
+        padding: 40px;
+        width: calc(100% - 300px);
+        max-width: 1020px;
+        border: 0.2px solid #4bb74940;
+        border-radius: 10px;
+        @include s.mediaTo(s.$size960) {
+            width: 100%;
+        }
+    }
+
+    .navbar {
+        @include s.mediaTo(s.$size960) {
+            z-index: 55;
+            position: absolute;
+            left: -500px;
+            transition: 0.3s;
+            &.isVisible {
+                left: 0px;
+            }
+        }
+    }
+
+    .burger_menu {
+        position: absolute;
+        right: 16px;
+        top: 10px;
+        display: none;
+        // left: 10px;
+        // transform: translateY(-50%);
+        z-index: 25;
+        cursor: pointer;
+        transition: s.$transition;
+        @include s.mediaTo(s.$size960) {
+            display: flex;
+        }
+
+        .menu_icon {
+            font-size: 32px;
+            color: s.$main-color;
+            transition: s.$transition;
+            &:hover {
+                color: s.$link-hover-color;
+            }
+        }
+    }
+}

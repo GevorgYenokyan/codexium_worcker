@@ -1,0 +1,199 @@
+$container: 1920px;
+$padding: 0 80px;
+$main-color: #4bb749;
+$error_color: #bf4342;
+$black: #040504;
+$blackOp: rgba(4, 5, 4, 0.70);
+$text_color: #fff;
+$link-color: #fff;
+$link-hover-color: #4bb749;
+$primary-color: #4bb749;
+$color: #fff;
+$grey: #b4b4b4;
+$color2: #eee;
+$placeholder-color: rgba(0, 0, 0, 0.3);
+$secondary-background: #fff;
+$light-grey: #ccc;
+$dark-grey: #f7f7f7;
+$danger-color: #bf4342;
+$success-color: #28a745;
+$font-size: 19px;
+$white: #fff;
+$standart-font-size: 16px;
+$small-font-size: 14px;
+$standart-line-height: 1.3em;
+$large-font-size: 18px;
+$large-line-height: 1.3em;
+$font-style: italic;
+$title-font-size: 22px;
+$text-font-size: 16px;
+$font-weight: 400;
+$border-radius: 10px;
+$opacity: 0.8;
+$nav-color: #ffffff;
+$border: 1px solid $link-hover-color;
+$primary-dark: #1a1a1a;
+$text-align: center;
+$transition: 0.3s;
+$box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
+$footer-border: 1px solid #1589cb4f;
+
+//media query sizes
+$size320: 320px;
+$size360: 360px;
+$size375: 375px;
+$size400: 400px;
+$size460: 460px;
+$size480: 480px;
+$size576: 576px;
+$size600: 600px;
+$size640: 640px;
+$size720: 720px;
+$size768: 768px;
+$size820: 820px;
+$size840: 840px;
+$size960: 960px;
+$size980: 980px;
+$size1024: 1024px;
+$size1440: 1440px;
+@mixin h2 {
+    font-size: 56px;
+    font-weight: 400;
+    line-height: $standart-line-height;
+    color: $text_color;
+    @include mediaTo($size960) {
+        font-size: 24px;
+    }
+}
+@mixin h3 {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: $standart-line-height;
+    color: $text_color;
+    @include mediaTo($size960) {
+        font-size: 24px;
+    }
+}
+@mixin h4 {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2em;
+    @include mediaTo($size960) {
+        font-size: 24px;
+    }
+    @include mediaTo($size640) {
+        font-size: 20px;
+    }
+}
+@mixin display-center($justify-content, $align-items) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+@mixin display-flex-direction($flex-direction, $align-items) {
+    display: flex;
+    flex-direction: $flex-direction;
+    align-items: $align-items;
+}
+
+@mixin proportion($percent, $width) {
+    width: $width;
+    position: relative;
+    overflow: hidden;
+    &::before {
+        display: block;
+        content: "";
+        padding-bottom: $percent;
+    }
+    > img {
+        transition: $transition;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+    }
+}
+@mixin text-style {
+    color: $text_color;
+    font-size: $standart-font-size;
+    line-height: $standart-line-height;
+    font-weight: $font-weight;
+    @include mediaTo($size960) {
+        font-size: $small-font-size;
+    }
+}
+@mixin largeText {
+    color: $text_color;
+    font-size: $large-font-size;
+    line-height: $large-line-height;
+    font-weight: $font-weight;
+    @include mediaTo($size980) {
+        font-size: 17px;
+    }
+    @include mediaTo($size960) {
+        font-size: $standart-font-size;
+    }
+}
+@mixin input-style {
+    border: 2px solid !important;
+}
+
+@mixin button {
+    width: 150px;
+    margin: 0 auto;
+}
+@mixin mediaTo($to) {
+    @media screen and (max-width: $to) {
+        @content;
+    }
+}
+@mixin mediaToMin($to) {
+    @media screen and (min-width: $to) {
+        @content;
+    }
+}
+
+    .primary_btn {
+        border: 1px solid $link-hover-color;
+        color: $link-hover-color;
+        padding: 6px 32px;
+        font-size: $large-font-size;
+        line-height: $standart-line-height;
+        background-color: transparent;
+        border-radius: 22px;
+        transition: $transition;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+            color: $color;
+            background-color: $link-hover-color;
+        }
+        @include mediaTo(1060px) {
+            padding:  6px 12px;
+        }
+    }
+    .secondary_btn {
+        border: 1px solid $link-hover-color;
+        color: $color;
+        padding: 12px 24px;
+        font-size: $large-font-size;
+        line-height: $standart-line-height;
+        background-color: $main-color;
+        border-radius: 10px;
+        transition: $transition;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+            color: $link-hover-color;
+            background-color: $color;
+        }
+        @include mediaTo($size720) {
+            padding: 12px;
+        }
+        @include mediaTo($size576) {
+            font-size: $small-font-size;
+        }
+    }

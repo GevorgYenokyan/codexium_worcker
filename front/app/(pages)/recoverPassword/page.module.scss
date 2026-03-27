@@ -1,0 +1,29 @@
+@use "../../style/styles.module.scss" as s;
+.auth {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 100vh;
+
+    .left {
+        position: absolute;
+        top: 0;
+        left: -35px;
+        width: 200px;
+        height: 320px;
+        z-index: -1;
+        @include s.mediaTo(s.$size960) {
+            width: 150px;
+            height: 205px;
+            left: -30px;
+        }
+        @include s.mediaTo(s.$size480) {
+            width: 90px;
+            height: 145px;
+            left: -15px;
+        }
+    }
+}

@@ -1,0 +1,64 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.hero {
+    border-radius: 12px;
+    padding: 24px;
+    @include s.display-center(space-between, flex-start);
+    gap: 16px;
+    border: 1px solid transparent;
+
+    @include s.mediaTo(s.$size576) {
+        flex-direction: column;
+    }
+}
+
+.heroDomain {
+    background-color: rgba(s.$main-color, 0.06);
+    border-color: rgba(s.$main-color, 0.2);
+}
+
+.heroIp {
+    background-color: rgba(#64b5f6, 0.06);
+    border-color: rgba(#64b5f6, 0.2);
+}
+
+.heroLeft {
+    @include s.display-flex-direction(column, flex-start);
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+}
+
+.heroBadge {
+    font-size: 12px;
+    color: s.$grey;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.heroQuery {
+    font-size: 28px;
+    font-weight: 700;
+    color: s.$text_color;
+    word-break: break-all;
+    line-height: 1.2;
+    margin: 0;
+
+    @include s.mediaTo(s.$size576) {
+        font-size: 22px;
+    }
+}
+
+.heroMeta {
+    font-size: s.$small-font-size;
+    color: s.$grey;
+    margin: 0;
+
+    span {
+        color: s.$color2;
+    }
+}
+
+.heroRight {
+    flex-shrink: 0;
+}

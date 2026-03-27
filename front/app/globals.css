@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--MontseratLight);
+}
+body {
+    background: #040504;
+}
+body[data-aos-duration="400"] [data-aos],
+[data-aos][data-aos][data-aos-duration="400"] {
+    transition-duration: 400ms;
+}
+h1,
+h2,
+h3,
+h5,
+h6 {
+    font-family: var(--MontseratSemiBold);
+    font-weight: 400 !important;
+}
+html {
+    scroll-behavior: smooth;
+}
+.typed-cursor {
+  color: #4bb749 !important; /* Change to desired color, e.g., #ff0000 or red */
+  font-size: 56px; /* Match the font size */
+  line-height: 1.3em; /* Adjust for proper alignment */
+}
+p .typed-cursor {
+  color: #4bb749 !important; /* Change to desired color, e.g., #ff0000 or red */
+  font-size: 24px ; /* Match the font size */
+  line-height: 1.3em; /* Adjust for proper alignment */
+}
+
+@media screen  and (max-width:960px){
+    
+.typed-cursor {
+  color: #4bb749 !important; /* Change to desired color, e.g., #ff0000 or red */
+  font-size: 28px; /* Match the font size */
+  line-height: 1.3em; /* Adjust for proper alignment */
+}
+p .typed-cursor {
+  color: #4bb749 !important; /* Change to desired color, e.g., #ff0000 or red */
+  font-size: 18px ; /* Match the font size */
+  line-height: 1.3em; /* Adjust for proper alignment */
+}
+}
+@media screen  and (max-width:640px){
+    
+.typed-cursor {
+  color: #4bb749 !important; /* Change to desired color, e.g., #ff0000 or red */
+  font-size: 20px; /* Match the font size */
+  line-height: 1.3em; /* Adjust for proper alignment */
+}
+
+}

@@ -1,0 +1,41 @@
+@use "../../../style/styles.module.scss" as styles;
+.upload-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+        background: transparent;
+        color: styles.$primary_color;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+        transform: scale(0.97);
+    }
+}
+
+.hidden-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+    overflow: hidden;
+}
+
+.label-text {
+    font-size: 14px;
+    font-weight: 500;
+    user-select: none;
+}

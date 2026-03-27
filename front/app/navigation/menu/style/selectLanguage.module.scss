@@ -1,0 +1,85 @@
+@use "../../../style/styles.module.scss" as s;
+
+.leng_container {
+  @include s.display-center(center, center);
+
+      @include s.mediaTo(s.$size960) {
+        margin: 28px 0;
+      }
+  .btn_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: auto;
+
+    @include s.mediaTo(s.$size960) {
+      flex-direction: column;
+    }
+    &:hover {
+      .select_leng {
+        color: s.$link-hover-color;
+      }
+      .arrowDown {
+        transform: rotateX(180deg);
+      }
+      .btn_list {
+        opacity: 1;
+        transform: translate(-50%, 0);
+        pointer-events: auto;
+      }
+    }
+    .select_leng {
+      background: transparent;
+      border: none;
+      z-index: 12;
+      cursor: pointer;
+      @include s.largeText;
+
+      @include s.mediaTo(1150px) {
+        @include s.text-style;
+      }
+      @include s.mediaTo(s.$size960) {
+        font-size: 18px;
+      }
+      .arrowDown {
+        color: s.$link-hover-color;
+        transition: s.$transition ease-in-out;
+        font-size: 14px;
+        margin-left: 3px;
+      }
+    }
+    .btn_list {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      width: 100%;
+      min-width: 65px;
+      background-color: s.$black;
+      opacity: 0;
+      transform: translate(-50%, -10px);
+      transition: all s.$transition;
+      pointer-events: none;
+      .leng_btn {
+        text-decoration: none;
+        text-align: center;
+        padding: 10px;
+        display: block;
+        transition: all s.$transition;
+        cursor: pointer;
+        @include s.text-style;
+      @include s.mediaTo(s.$size960) {
+        font-size: 17px;
+      }
+        &.active {
+          color: s.$link-hover-color;
+        }
+        &:not(:last-child) {
+          border-bottom: 1px solid s.$link-hover-color;
+        }
+        &:hover {
+          color: s.$link-hover-color;
+        }
+      }
+    }
+  }
+}

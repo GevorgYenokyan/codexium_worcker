@@ -1,0 +1,46 @@
+@use "../../style/styles.module.scss" as s;
+
+.container {
+    position: relative;
+    overflow-x: hidden;
+    padding: 200px 80px;
+    @include s.mediaTo(s.$size960) {
+        padding: 100px 0 0;
+    }
+    .right {
+        position: absolute;
+        top: 45%;
+        right: -35px;
+        width: 200px;
+        height: 320px;
+        z-index: 1;
+        transition: 0.6s;
+        transition-timing-function: cubic-bezier(0, 2, 1, 2);
+        @include s.mediaTo(s.$size960) {
+            width: 150px;
+            height: 205px;
+            right: -35px;
+        }
+        @include s.mediaTo(s.$size640) {
+            width: 90px;
+            top: 70%;
+            right: -15px;
+            height: 145px;
+        }
+        @include s.mediaTo(s.$size480) {
+            width: 90px;
+            top: 65%;
+            right: -15px;
+            height: 145px;
+        }
+        @include s.mediaTo(s.$size375) {
+            width: 90px;
+            top: 60%;
+            right: -15px;
+            height: 145px;
+        }
+        &:hover {
+            transform: translateX(-10px);
+        }
+    }
+}

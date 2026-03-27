@@ -1,0 +1,227 @@
+@use "../../style/styles.module.scss" as s;
+.whyWe {
+  max-width: s.$container;
+  margin: 0 auto;
+  padding: s.$padding;
+  @include s.mediaTo(1200px) {
+    padding: 0 16px;
+  }
+  h2 {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    @include s.mediaTo(s.$size960) {
+      gap: 6px;
+    }
+    .line {
+      transform: translateY(-3px);
+      width: 4px;
+      height: 68px;
+      background-color: s.$main-color;
+      @include s.mediaTo(s.$size960) {
+        height: 40px;
+      }
+    }
+    b {
+      color: s.$text_color;
+      @include s.h2;
+
+      .line1 {
+        display: inline-block;
+        white-space: pre-wrap;
+        width: 100%;
+      }
+    }
+  }
+  .offerContainer {
+    margin: 80px 0;
+    flex-wrap: wrap;
+    @include s.display-center(flex-start, stretch);
+    @include s.mediaTo(s.$size960) {
+      gap: 32px;
+    }
+    p {
+      color: s.$white;
+      margin-top: 36px;
+      text-decoration: none;
+      @include s.text-style;
+      @include s.mediaTo(s.$size640) {
+        margin-top: 18px;
+      }
+    }
+    .title {
+      color: s.$text_color;
+      text-transform: uppercase;
+      font-size: 22px;
+      line-height: 1.3em;
+      text-decoration: none;
+      gap: 16px;
+      @include s.display-center(flex-start, center);
+
+      @include s.mediaTo(s.$size768) {
+        gap: 8px;
+        font-size: 20px;
+      }
+      @include s.mediaTo(375px) {
+        font-size: 18px;
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+      @include s.mediaTo(s.$size360) {
+        font-size: 16px;
+      }
+      @include s.mediaTo(s.$size320) {
+        font-size: 15px;
+      }
+    }
+    .left {
+      width: 100%;
+      // width: 68%;
+      gap: 16px;
+      flex-wrap: wrap;
+      @include s.display-center(flex-start, stretch);
+      @include s.mediaTo(s.$size960) {
+        gap: 32px;
+        width: 100%;
+      }
+      .offerElem {
+        width: calc(50% - 16px);
+        border-radius: 20px;
+        background-color: s.$main-color;
+        transition: s.$transition;
+        text-decoration: none;
+        @include s.mediaTo(s.$size960) {
+          width: calc(50% - 16px);
+        }
+        @include s.mediaTo(s.$size720) {
+          width: 100%;
+        }
+        &:hover .offer {
+          transform: rotate(-5deg);
+        }
+        .offer {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border: 1px solid s.$main-color;
+          border-radius: 20px;
+          background-color: s.$black;
+          transition: s.$transition;
+          position: relative;
+          text-decoration: none;
+          transition-timing-function: cubic-bezier(0, 2, 1, 2);
+          padding: 24px;
+          user-select: none;
+          .round {
+            width: 100px;
+            height: 100px;
+            background-color: #4bb74933;
+            border-radius: 50%;
+            padding: 30px 0 0 20px;
+            position: absolute;
+            top: 18px;
+            right: 18px;
+
+            @include s.mediaTo(s.$size960) {
+              width: 88px;
+              height: 88px;
+            }
+            @include s.mediaTo(s.$size480) {
+              width: 70px;
+              padding: 20px 0 0 15px;
+              height: 70px;
+            }
+            .border {
+              width: 50px;
+              height: 50px;
+              border-top: 8px solid s.$main-color;
+              border-right: 8px solid s.$main-color;
+
+              @include s.mediaTo(s.$size960) {
+                border-top: 7px solid s.$main-color;
+                border-right: 7px solid s.$main-color;
+                width: 44px;
+                height: 44px;
+              }
+              @include s.mediaTo(s.$size480) {
+                width: 35px;
+                height: 35px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .domain {
+      width: 32%;
+      border-radius: 20px;
+      transition: s.$transition;
+      text-decoration: none;
+      @include s.mediaTo(s.$size960) {
+        width: 100%;
+      }
+      &:hover .offer {
+        background-color: s.$main-color;
+      }
+      .offer {
+        width: 100%;
+        height: 100%;
+        border: 1px solid s.$color;
+        border-radius: 20px;
+        background-color: #4bb749b2;
+        transition: s.$transition;
+        position: relative;
+        padding: 55% 20px 40px;
+        user-select: none;
+          text-decoration: none;
+        cursor: pointer;
+        justify-content: flex-end;
+        @include s.display-flex-direction(column, flex-start);
+        @include s.mediaTo(s.$size960) {
+          padding: 35% 20px 25px;
+        }
+        .round {
+          width: 100px;
+          height: 100px;
+          background-color: #c6d8c533;
+          border-radius: 50%;
+          border: 1px solid s.$white;
+          padding: 30px 0 0 20px;
+          position: absolute;
+          top: 18px;
+          right: 18px;
+
+          @include s.mediaTo(s.$size960) {
+            width: 88px;
+            height: 88px;
+            padding: 25px 0 0 20px;
+          }
+          @include s.mediaTo(s.$size480) {
+            width: 70px;
+            padding: 20px 0 0 15px;
+            height: 70px;
+          }
+          .border {
+            width: 50px;
+            height: 50px;
+            border-top: 8px solid s.$color;
+            border-right: 8px solid s.$color;
+
+            @include s.mediaTo(s.$size960) {
+              border-top: 7px solid s.$color;
+              border-right: 7px solid s.$color;
+              width: 44px;
+              height: 44px;
+            }
+            @include s.mediaTo(s.$size480) {
+              width: 35px;
+              height: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

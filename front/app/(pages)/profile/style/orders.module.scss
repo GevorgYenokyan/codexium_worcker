@@ -1,0 +1,131 @@
+@use "../../../style/styles.module.scss" as s;
+
+.orders {
+    width: 100%;
+    @include s.display-flex-direction(column, start);
+    gap: 30px;
+    .header {
+        @include s.display-flex-direction(column, start);
+        gap: 15px;
+
+        h3 {
+            font-weight: 500;
+            font-size: 26px;
+            line-height: 22px;
+            color: s.$text_color;
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 22px;
+            color: s.$text_color;
+        }
+    }
+
+    .cards {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+
+        .card {
+            @include s.display-flex-direction(column, start);
+            width: 49%;
+            max-width: 449px;
+            background: #4bb7490d;
+            border: 1px solid #333333;
+            box-shadow: 0px 1px 2px 0px #1a1a1a;
+            border-radius: 12px;
+            gap: 16px;
+            padding: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            @include s.mediaTo(1480px) {
+                width: 45%;
+            }
+
+            @include s.mediaTo(1210px) {
+                width: 100%;
+            }
+            &:hover {
+                background: #4bb74933;
+            }
+
+            .cardHeader {
+                width: 100%;
+                @include s.display-center(space-between, center);
+                @include s.mediaTo(450px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                gap: 10px;
+                .card_title {
+                    @include s.display-flex-direction(column, start);
+
+                    h3 {
+                        font-weight: 500;
+                        font-size: 20px;
+                        line-height: 24px;
+                        letter-spacing: -0.6px;
+                        color: s.$text_color;
+                        @include s.mediaTo(450px) {
+                            font-size: 18px;
+                        }
+                    }
+
+                    p {
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 20px;
+                        color: #a6a6a6;
+                        @include s.mediaTo(450px) {
+                            font-size: 10px;
+                        }
+                    }
+                }
+
+                .badge {
+                    padding: 3px 11px;
+                    background: #1cca5b1a;
+                    border-radius: 10px;
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: s.$main-color;
+                }
+            }
+
+            .statusRow {
+                width: 100%;
+                @include s.display-center(space-between, center);
+                gap: 16px;
+
+                .statusBox {
+                    @include s.display-flex-direction(column, center);
+                    width: 48%;
+                    max-width: 191px;
+                    border-radius: 12px;
+                    padding: 12px;
+                    background: #33333380;
+                    span {
+                        font-weight: 400;
+                        font-size: 24px;
+                        line-height: 32px;
+                        color: s.$text_color;
+                    }
+
+                    p {
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 20px;
+                        color: s.$text_color;
+                    }
+                    .active {
+                        color: s.$main-color;
+                    }
+                }
+            }
+        }
+    }
+}

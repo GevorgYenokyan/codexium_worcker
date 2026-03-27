@@ -1,0 +1,76 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.banner {
+    @include s.display-center(flex-start, center);
+    gap: 20px;
+    padding: 20px 24px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+
+    @include s.mediaTo(s.$size576) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 3px solid;
+    font-size: 24px;
+    font-weight: 800;
+    @include s.display-center(center, center);
+    flex-shrink: 0;
+}
+
+.info {
+    @include s.display-flex-direction(column, flex-start);
+    gap: 4px;
+}
+
+.domain {
+    font-size: s.$large-font-size;
+    font-weight: 600;
+    font-family: monospace;
+}
+
+.score {
+    font-size: s.$small-font-size;
+    color: s.$grey;
+}
+
+.tags {
+    @include s.display-center(flex-start, center);
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.tagPassed {
+    font-size: 12px;
+    color: s.$success-color;
+    background: rgba(s.$success-color, 0.1);
+    padding: 2px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(s.$success-color, 0.3);
+}
+
+.tagWarn {
+    font-size: 12px;
+    color: #ffc107;
+    background: rgba(#ffc107, 0.1);
+    padding: 2px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(#ffc107, 0.3);
+}
+
+.tagFailed {
+    font-size: 12px;
+    color: s.$danger-color;
+    background: rgba(s.$danger-color, 0.1);
+    padding: 2px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(s.$danger-color, 0.3);
+}

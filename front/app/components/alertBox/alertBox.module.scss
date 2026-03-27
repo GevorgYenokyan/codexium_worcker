@@ -1,0 +1,127 @@
+// alertBox.module.scss
+.alertBox {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 553px;
+    height: 435px;
+    top: 279px;
+    border-radius: 25px;
+    gap: 53px;
+    padding-top: 120px;
+    padding-right: 40px;
+    padding-bottom: 120px;
+    padding-left: 40px;
+    border: 1px solid #43a908;
+    background: #040504;
+    // box-shadow: 0px 10px 20px 0px;
+
+    // top: 50%;
+    // left: 50%;
+    &.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &.success {
+        background-color: #040504;
+        color: #43a908;
+        border-color: #43a908;
+    }
+
+    &.error {
+        background-color: #040504;
+        color: #d32f2f;
+        border-color: #d32f2f;
+    }
+
+    &.top {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &.bottom {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &.center {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .link {
+        width: 100%;
+        width: 473px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 32px;
+        text-decoration: none;
+        font-weight: 500;
+        font-style: Medium;
+        font-size: 22px;
+        line-height: 100%;
+        text-align: center;
+        vertical-align: middle;
+        background-color: #4bb749;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 100%;
+        text-align: center;
+        vertical-align: middle;
+        color: #f4fffe;
+    }
+}
+
+.text_container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+        font-weight: 600;
+        font-style: SemiBold;
+        font-size: 32px;
+        line-height: 38px;
+        text-align: center;
+    }
+
+    .message {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 28px;
+        text-align: center;
+        color: #f4fffe;
+    }
+}
+
+.closeButton {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    background-color: #4bb749;
+    opacity: 0.3;
+    border: none;
+    cursor: pointer;
+    img {
+        opacity: 1 !important;
+    }
+
+    &:focus {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+    }
+}

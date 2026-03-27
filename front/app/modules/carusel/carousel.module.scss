@@ -1,0 +1,87 @@
+/* components/MouseCarousel.module.scss */
+.carouselWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.carouselContainer {
+    overflow-x: scroll;
+    width: 100%;
+    cursor: grab;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+}
+
+.carouselContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.carouselContainer:active {
+    cursor: grabbing;
+}
+
+.carouselInner {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    width: max-content;
+}
+
+.carouselItem {
+    flex: 0 0 auto;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    user-select: none;
+    touch-action: none;
+}
+
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+.navButton:first-child {
+    left: 10px;
+}
+
+.navButton:last-child {
+    right: 10px;
+}
+
+.navButton:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navButton:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Optional: Smaller buttons on mobile */
+@media (max-width: 480px) {
+    .navButton {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+}

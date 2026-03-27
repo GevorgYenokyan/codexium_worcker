@@ -1,0 +1,42 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.rawSection {
+    // @include s.display-flex-direction(column, flex-start);
+    // gap: 8px;
+}
+
+.rawToggle {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: s.$border-radius;
+    color: s.$grey;
+    font-size: s.$small-font-size;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition:
+        color s.$transition,
+        border-color s.$transition;
+    align-self: flex-start;
+
+    &:hover {
+        color: s.$text_color;
+        border-color: rgba(255, 255, 255, 0.25);
+    }
+}
+
+.rawPre {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: s.$border-radius;
+    padding: 16px;
+    font-family: monospace;
+    font-size: 12px;
+    color: s.$grey;
+    white-space: pre-wrap;
+    word-break: break-all;
+    overflow-x: auto;
+    line-height: 1.6;
+    // max-height: 500px;
+    overflow-y: auto;
+}

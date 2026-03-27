@@ -1,0 +1,51 @@
+@use "../../../style/styles.module.scss" as s;
+.nfc_cards {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .cards_list {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 20px;
+        @include s.mediaTo(900px) {
+            justify-content: center;
+        }
+    }
+
+    h2 {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+
+        @include s.mediaTo(s.$size960) {
+            align-self: stretch;
+            gap: 6px;
+            width: 90%;
+        }
+        .line {
+            width: 4px;
+            height: 58px;
+            background-color: s.$main-color;
+            @include s.mediaTo(s.$size960) {
+                height: 30px;
+            }
+        }
+        b {
+            color: s.$text_color;
+            font-size: 38px;
+            line-height: s.$standart-line-height;
+            @include s.mediaTo(s.$size960) {
+                font-size: 18px;
+            }
+
+            .line1 {
+                display: inline-block;
+                white-space: pre-wrap;
+                width: 100%;
+            }
+        }
+    }
+}

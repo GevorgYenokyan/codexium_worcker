@@ -1,0 +1,29 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.results {
+    @include s.display-flex-direction(column, stretch);
+    gap: 16px;
+}
+
+.loadingBox {
+    @include s.display-flex-direction(column, center);
+    gap: 12px;
+    padding: 48px;
+    text-align: center;
+    color: s.$grey;
+    font-size: s.$small-font-size;
+}
+
+.spinner {
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    border: 3px solid rgba(255, 255, 255, 0.08);
+    border-top-color: s.$main-color;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

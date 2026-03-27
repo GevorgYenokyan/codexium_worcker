@@ -1,0 +1,33 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.badge {
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 13px;
+    font-family: monospace;
+    border: 1px solid transparent;
+}
+
+.badge_green {
+    background-color: rgba(s.$main-color, 0.08);
+    border-color: rgba(s.$main-color, 0.2);
+    color: s.$main-color;
+}
+
+.badge_blue {
+    background-color: rgba(#64b5f6, 0.08);
+    border-color: rgba(#64b5f6, 0.2);
+    color: #64b5f6;
+}
+
+.badge_neutral {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: s.$color2;
+}

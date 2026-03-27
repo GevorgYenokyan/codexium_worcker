@@ -1,0 +1,280 @@
+@use "../../../style/styles.module.scss" as s;
+
+.weAre {
+  position: relative;
+  overflow: hidden;
+  padding: 200px 0 125px;
+  @include s.mediaTo(s.$size960) {
+    padding: 100px 0 0;
+  }
+  .right {
+    position: absolute;
+    top: 25%;
+    right: -35px;
+    width: 200px;
+    height: 320px;
+    z-index: 1;
+    transition: 0.6s;
+    transition-timing-function: cubic-bezier(0, 2, 1, 2);
+    @include s.mediaTo(s.$size960) {
+      width: 150px;
+      height: 205px;
+      right: -35px;
+    }
+    @include s.mediaTo(s.$size768) {
+      width: 150px;
+      height: 205px;
+      right: -35px;
+      top: 300px;
+    }
+    @include s.mediaTo(s.$size480) {
+      width: 90px;
+      right: -15px;
+      top: 200px;
+      height: 145px;
+    }
+    &:hover {
+      transform: translateX(-10px);
+    }
+  }
+
+  .container {
+    width: 100%;
+    max-width: s.$container;
+    margin: 0 auto;
+    padding: s.$padding;
+    color: s.$text_color;
+    @include s.mediaTo(1200px) {
+      padding: 0 20px;
+    }
+    @include s.mediaTo(s.$size960) {
+      padding: 0 16px;
+    }
+    h2 {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 50px;
+      @include s.mediaTo(s.$size960) {
+        gap: 6px;
+      }
+      .line {
+        width: 4px;
+        height: 68px;
+        background-color: s.$main-color;
+        @include s.mediaTo(s.$size960) {
+          height: 40px;
+        }
+        @include s.mediaTo(s.$size640) {
+          height: 24px;
+        }
+      }
+      b {
+        color: s.$text_color;
+        font-size: 46px;
+        line-height: s.$standart-line-height;
+        display: flex;
+        align-items: center;
+        @include s.mediaTo(s.$size960) {
+          font-size: 24px;
+        }
+        @include s.mediaTo(s.$size640) {
+          font-size: 18px;
+        }
+        .green {
+          display: inline-block;
+          color: s.$main-color;
+        }
+        
+        .line1 {
+          display: inline-block;
+          white-space: pre-wrap;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.we {
+  padding: 0 80px 80px;
+  @include s.display-center(space-between, flex-start);
+  @include s.mediaTo(1440px) {
+    padding: 0 0 80px;
+  }
+  @include s.mediaTo(s.$size768) {
+    flex-wrap: wrap;
+    gap: 80px;
+  }
+  @include s.mediaTo(s.$size375) {
+    gap: 40px;
+  }
+  > div {
+    gap: 3px;
+    @include s.display-center(flex-start, flex-start);
+
+    &.wleft {
+      max-width: 733px;
+      width: 100%;
+      padding-right: 40px;
+      @include s.mediaTo(s.$size768) {
+        max-width: 800px;
+        padding: 0;
+      }
+      .image {
+        height: 100%;
+        @include s.proportion(32.33333%, 100%);
+        @include s.mediaTo(s.$size768) {
+          max-width: 800px;
+        }
+      }
+    }
+    &.wright {
+      max-width: 638px;
+      width: 100%;
+
+      @include s.mediaTo(s.$size768) {
+        max-width: 800px;
+      }
+      p {
+        font-size: 26px;
+        line-height: 140%;
+      max-width: 638px;
+        width: 100%;
+        @include s.mediaTo(1440px) {
+          font-size: 20px;
+        }
+        @include s.mediaTo(s.$size960) {
+          font-size: 18px;
+        }
+        @include s.mediaTo(s.$size480) {
+          font-size: 16px;
+        }
+        
+      }
+      .line {
+        flex: 0 0 4px;
+
+        height: 24px;
+        background-color: s.$main-color;
+      }
+    }
+  }
+}
+.ai {
+  padding: 80px 0 0 0;
+
+  .aiContainer {
+    @include s.display-center(flex-start, flex-start);
+    @include s.mediaTo(s.$size640) {
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .aleft {
+      width: 40%;
+
+      @include s.display-center(center, flex-start);
+      @include s.mediaTo(s.$size640) {
+        width: 100%;
+      }
+      .image {
+        max-width: 320px;
+        @include s.proportion(85%, 100%);
+        @include s.mediaTo(s.$size640) {
+          max-width: 800px;
+        }
+      }
+    }
+    .aright {
+      width: 60%;
+      flex-wrap: wrap;
+      @include s.display-center(flex-start, flex-start);
+      @include s.mediaTo(s.$size640) {
+        width: 100%;
+      }
+
+      p {
+        max-width: 710px;
+        width: 100%;
+        font-size: 32px;
+        margin-bottom: 10px;
+        line-height: 140%;
+        @include s.mediaTo(1440px) {
+          font-size: 28px;
+        }
+        @include s.mediaTo(1280px) {
+          font-size: 24px;
+        }
+        @include s.mediaTo(s.$size960) {
+          font-size: 20px;
+        }
+        @include s.mediaTo(s.$size640) {
+          font-size: 18px;
+        }
+        @include s.mediaTo(s.$size480) {
+          font-size: 16px;
+        }
+      }
+      .icons {
+        width: 100%;
+        gap: 50px;
+        max-width: 710px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        @include s.display-center(flex-start, center);
+        img {
+          height: 57px;
+          width: auto;
+          object-fit: cover;
+          transition: s.$transition;
+          filter: grayscale(100%) brightness(200%);
+          &:hover {
+            filter: grayscale(0%) brightness(110%);
+          }
+          @include s.mediaTo(s.$size640) {
+            width: 100%;
+            height: fit-content;
+          }
+        }
+      }
+    }
+  }
+}
+.builtsContainer {
+  padding: 40px;
+  gap: 80px;
+  @include s.display-center(center, stretch);
+  @include s.mediaTo(1100px) {
+    padding: 40px 0;
+    gap: 60px;
+  }
+  @include s.mediaTo(s.$size820) {
+    flex-wrap: wrap;
+  }
+  .builtsItems {
+    width: calc(100% / 3 - 80px);
+    border-radius: 15px;
+    border: 1px solid s.$main-color;
+    padding: 20px 25px 32px;
+    gap: 12px;
+    @include s.display-flex-direction(column, center);
+    @include s.mediaTo(1100px) {
+      width: calc(100% / 3 - 40px);
+    }
+    @include s.mediaTo(s.$size820) {
+      width: calc(50% - 40px);
+    }
+    @include s.mediaTo(s.$size576) {
+      width: 100%;
+    }
+    h3 {
+      color: s.$main-color;
+      font-size: 64px;
+      text-align: center;
+    }
+    span {
+      text-align: center;
+      @include s.text-style;
+    }
+  }
+}

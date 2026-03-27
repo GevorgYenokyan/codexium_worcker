@@ -1,0 +1,125 @@
+@use "../../../style/styles.module.scss" as s;
+
+.portfolio {
+    width: 100%;
+    height: 100%;
+    padding: 100px;
+
+    @include s.mediaTo(1200px) {
+        padding: 60px 20px;
+    }
+    @include s.mediaTo(s.$size960) {
+        padding: 40px 16px;
+    }
+    @include s.mediaTo(s.$size400) {
+        padding: 20px 16px;
+    }
+    > h2 {
+        @include s.h2;
+        @include s.mediaTo(s.$size768) {
+            margin-bottom: 30px;
+        }
+    }
+    .info {
+        gap: 40px;
+        @include s.display-center(center, stretch);
+        @include s.mediaTo(s.$size768) {
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .popupImage {
+            border-radius: 15px;
+            @include s.proportion(60%, 55%);
+            @include s.mediaTo(s.$size768) {
+                @include s.proportion(55%, 100%);
+            }
+        }
+        .about_project {
+            width: calc(45% - 40px);
+            border-radius: 15px;
+            padding: 18px;
+            border: 1px solid s.$main-color;
+            @include s.mediaTo(s.$size768) {
+                width: 100%;
+            }
+            @include s.mediaTo(s.$size400) {
+                padding: 12px;
+            }
+
+            h2 {
+                @include s.h3;
+                @include s.mediaTo(1280px) {
+                    margin-bottom: 20px;
+                    @include s.h4;
+                }
+                @include s.mediaTo(s.$size400) {
+                    font-size: 20px;
+                }
+            }
+            h3 {
+                margin-bottom: 18px;
+                @include s.largeText;
+                @include s.display-center(flex-start, flex-start);
+                b {
+                    width: 45%;
+                    @include s.mediaTo(s.$size400) {
+                        font-size: 14px;
+                        width: 35%;
+                    }
+                    &.green {
+                        width: 40%;
+                        color: s.$main-color;
+                        @include s.mediaTo(s.$size768) {
+                            padding-right: 10px;
+                        }
+                        @include s.mediaTo(s.$size400) {
+                            font-size: 14px;
+                            width: 45%;
+                        }
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                    color: s.$text_color;
+                    transition: s.$transition;
+                    &:hover {
+                        color: s.$main-color;
+                    }
+                    @include s.largeText;
+                    // margin-bottom: 18px;
+                    // @include s.largeText;
+                    // @include s.display-center(flex-start, flex-start);
+
+                    // width: 45%;
+                    @include s.mediaTo(s.$size400) {
+                        font-size: 14px;
+                        width: 35%;
+                    }
+                }
+            }
+        }
+    }
+    .description {
+        margin-top: 80px;
+        @include s.mediaTo(s.$size768) {
+            margin-top: 30px;
+        }
+        h2 {
+            @include s.h3;
+            @include s.mediaTo(s.$size768) {
+                margin-bottom: 20px;
+            }
+            @include s.mediaTo(s.$size400) {
+                font-size: 20px;
+            }
+        }
+        p {
+            font-size: 24px;
+            line-height: s.$standart-line-height;
+            @include s.mediaTo(s.$size768) {
+                font-size: 16px;
+            }
+        }
+    }
+}

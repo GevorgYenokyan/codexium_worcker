@@ -1,0 +1,16 @@
+@use "../../style/styles.module.scss" as s;
+.container {
+    position: relative;
+    overflow: hidden;
+    padding: 200px 0px 0px;
+    @include s.mediaTo(s.$size960) {
+        padding: 100px 0 0;
+    }
+
+    @include s.mediaTo(700px) {
+        padding: 40px 0 0;
+    }
+    @include s.mediaTo(500px) {
+        padding: 20px 0 0;
+    }
+}

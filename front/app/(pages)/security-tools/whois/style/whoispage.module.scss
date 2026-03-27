@@ -1,0 +1,6 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.results {
+    @include s.display-flex-direction(column, stretch);
+    gap: 10px;
+}

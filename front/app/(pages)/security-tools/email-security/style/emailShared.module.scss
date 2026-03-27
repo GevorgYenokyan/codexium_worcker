@@ -1,0 +1,62 @@
+@use "../../../../style/styles.module.scss" as s;
+
+.iconOk {
+    color: s.$success-color;
+    font-size: 18px;
+    font-weight: 800;
+}
+.iconFail {
+    color: s.$danger-color;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.rawRecord {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-family: monospace;
+    font-size: 12px;
+    color: s.$color2;
+    word-break: break-all;
+    line-height: 1.6;
+}
+
+.notFound {
+    color: s.$grey;
+    font-size: s.$small-font-size;
+    font-style: italic;
+}
+
+.issueList {
+    @include s.display-flex-direction(column, flex-start);
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.issue {
+    font-size: s.$small-font-size;
+    color: #ffc107;
+    line-height: s.$standart-line-height;
+}
+
+.recList {
+    @include s.display-flex-direction(column, flex-start);
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.rec {
+    font-size: s.$small-font-size;
+    color: s.$grey;
+    line-height: s.$standart-line-height;
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-left: 2px solid rgba(s.$main-color, 0.4);
+    border-radius: 0 6px 6px 0;
+}

@@ -1,0 +1,98 @@
+.selectorContainer {
+    width: 100%;
+    position: relative;
+    max-width: 250px;
+    font-family: Arial, sans-serif;
+
+    .selectorButtonWrapper {
+        display: flex;
+
+        .selectorButton {
+            width: 100%;
+            min-width: 80px;
+            padding: 10px;
+            background: #edf5ff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.2s ease-in-out;
+            &:hover {
+                background: #e2e6ea;
+            }
+        }
+
+        .clearButton {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 5px;
+            color: #888;
+        }
+    }
+    .dropdownWrapper {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        overflow: hidden;
+
+        .searchInput {
+            width: calc(100% - 20px);
+            margin: 10px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+
+            &:focus {
+                outline: none;
+                border-color: #aaa;
+            }
+        }
+    }
+
+    .dropdownMenu {
+        display: none;
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        max-height: 200px;
+        overflow-y: auto;
+        border-radius: 5px;
+
+        li {
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.2s ease-in-out;
+
+            &:hover {
+                background: #f1f1f1;
+            }
+        }
+
+        .noResults {
+            padding: 10px;
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+        }
+    }
+
+    .dropdownMenu.open {
+        display: block;
+    }
+}

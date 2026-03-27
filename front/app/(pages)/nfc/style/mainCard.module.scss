@@ -1,0 +1,50 @@
+@use "../../../style/styles.module.scss" as s;
+.mainCard {
+    width: 100%;
+    max-width: 1400px;
+    padding: 0px 60px;
+    margin: 0 auto;
+    display: flex;
+    @include s.mediaTo(s.$size960) {
+        flex-direction: column;
+        gap: 25px;
+        padding: 0px 60px;
+    }
+
+    @include s.mediaTo(500px) {
+        padding: 0px 10px;
+    }
+    h2 {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+
+        @include s.mediaTo(s.$size960) {
+            align-self: stretch;
+            gap: 6px;
+            width: 90%;
+        }
+        .line {
+            width: 4px;
+            height: 68px;
+            background-color: s.$main-color;
+            @include s.mediaTo(s.$size960) {
+                height: 40px;
+            }
+        }
+        b {
+            color: s.$text_color;
+            font-size: 48px;
+            line-height: s.$standart-line-height;
+            @include s.mediaTo(s.$size960) {
+                font-size: 24px;
+            }
+
+            .line1 {
+                display: inline-block;
+                white-space: pre-wrap;
+                width: 100%;
+            }
+        }
+    }
+}

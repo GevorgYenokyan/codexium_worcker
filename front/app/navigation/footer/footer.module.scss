@@ -1,0 +1,130 @@
+@use "../../style/styles.module.scss" as s;
+
+.footer {
+    border-top: 1px solid s.$main-color;
+    margin-top: 100px;
+    &.hidden {
+        display: none;
+    }
+    .footerContainer {
+        max-width: s.$container;
+        padding: 80px 80px 100px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        @include s.display-center(space-between, flex-start);
+        @include s.mediaTo(1200px) {
+            padding: 80px 16px;
+        }
+        @include s.mediaTo(s.$size960) {
+            gap: 40px;
+        }
+        .logo {
+            width: 15%;
+            @include s.mediaTo(s.$size960) {
+                width: 100%;
+                max-width: 350px;
+            }
+            a {
+                width: 100%;
+                transform: translateY(-15px);
+                @include s.display-flex-direction(column, flex-start);
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            p {
+                width: 100%;
+                font-size: s.$small-font-size;
+                line-height: s.$standart-line-height;
+                color: s.$white;
+            }
+        }
+        .linksContainer {
+            width: 85%;
+            gap: 60px;
+            padding-left: 60px;
+            @include s.display-center(flex-end, flex-start);
+            @include s.mediaTo(s.$size1440) {
+                gap: 30px;
+            }
+            @include s.mediaTo(s.$size960) {
+                width: 100%;
+                padding-left: 0;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .footerElements {
+                color: s.$white;
+                width: fit-content;
+                gap: 16px;
+                justify-content: flex-start;
+                @include s.display-flex-direction(column, flex-start);
+                .footerLink {
+                    color: s.$white;
+                    text-decoration: none;
+                    font-size: s.$standart-font-size;
+                    transition: s.$transition;
+                    text-transform: capitalize;
+                    width: fit-content;
+                    &:hover {
+                        color: s.$main-color;
+                    }
+                    &.active {
+                        color: s.$main-color;
+                    }
+                }
+                h4 {
+                    font-size: s.$large-font-size;
+                    .footerLink {
+                        color: s.$white;
+                        text-decoration: none;
+                        transition: s.$transition;
+                        font-size: s.$large-font-size;
+                        &.active {
+                            color: s.$main-color;
+                        }
+                    }
+                }
+                .sml {
+                    margin-top: 40px;
+                }
+                .want_talk {
+                    @include s.mediaTo(s.$size960) {
+                        margin-top: 24px;
+                    }
+                }
+                .sml_links {
+                    gap: 9px;
+                    @include s.display-center(flex-start, flex-start);
+                    .links {
+                        text-decoration: none;
+                        color: s.$main-color;
+                        font-size: 28px;
+                        transition: s.$transition;
+                        &.insta {
+                            font-size: 32px;
+                            margin-top: -2px;
+                        }
+                        &:hover {
+                            color: s.$white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .copyrights {
+        background-color: s.$main-color;
+        min-height: 80px;
+        color: s.$white;
+        text-align: center;
+        padding: 16px;
+        font-size: s.$large-font-size;
+        @include s.display-center(center, center);
+        @include s.mediaTo(s.$size960) {
+            font-size: s.$small-font-size;
+            min-height: 60px;
+        }
+    }
+}

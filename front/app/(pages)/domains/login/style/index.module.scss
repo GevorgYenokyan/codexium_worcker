@@ -1,0 +1,7 @@
+@use "../../../../style/styles.module.scss" as styles;
+
+.container {
+    @include styles.display-center(center, center);
+    width: 100%;
+    height: 100%;
+}

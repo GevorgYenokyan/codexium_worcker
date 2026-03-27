@@ -1,0 +1,123 @@
+@use "../../style/styles.module.scss" as s;
+.terms {
+  position: relative;
+  overflow: hidden;
+  padding: 200px 0 125px;
+  @include s.mediaTo(s.$size960) {
+    padding: 100px 0 0;
+  }
+  .right {
+    position: absolute;
+    top: 25%;
+    right: -35px;
+    width: 200px;
+    height: 320px;
+    z-index: 1;
+    transition: 0.6s;
+    transition-timing-function: cubic-bezier(0, 2, 1, 2);
+    @include s.mediaTo(s.$size960) {
+      width: 150px;
+      height: 205px;
+      right: -35px;
+    }
+    @include s.mediaTo(s.$size480) {
+      width: 90px;
+      right: -15px;
+      height: 145px;
+    }
+    &:hover {
+      transform: translateX(-10px);
+    }
+  }
+}
+
+.container {
+  max-width: s.$container;
+  margin: 0 auto;
+  padding: s.$padding;
+  color: s.$text_color;
+  @include s.mediaTo(1280px) {
+    padding: 0 20px;
+  }
+  @include s.mediaTo(s.$size960) {
+    padding: 0 16px;
+  }
+  h2 {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 50px;
+    @include s.mediaTo(s.$size960) {
+      gap: 6px;
+    }
+    .line {
+      width: 4px;
+      height: 68px;
+      background-color: s.$main-color;
+      @include s.mediaTo(s.$size960) {
+        height: 40px;
+      }
+    }
+    b {
+      color: s.$text_color;
+      font-size: 48px;
+      line-height: s.$standart-line-height;
+      @include s.mediaTo(s.$size960) {
+        font-size: 24px;
+      }
+
+      .line1 {
+        display: inline-block;
+        white-space: pre-wrap;
+        width: 100%;
+      }
+    }
+  }
+
+  h5 {
+    margin: 110px 0 20px;
+    @include s.h3;
+    @include s.mediaTo(s.$size840) {
+      margin: 70px 0 20px;
+      font-size: 20px;
+    }
+  }
+}
+
+.subTitle {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 140%;
+  color: s.$main-color;
+  margin: 30px 0 24px;
+  @include s.mediaTo(s.$size960) {
+    font-size: 24px;
+  }
+  @include s.mediaTo(s.$size576) {
+    font-size: 20px;
+  }
+  @include s.mediaTo(s.$size320) {
+    font-size: 18px;
+  }
+}
+
+.termsList {
+  list-style-position: inside;
+  gap: 15px;
+  margin-top: 40px;
+  @include s.display-flex-direction(column, flex-start);
+  li {
+    line-height: 140%;
+    font-size: 24px;
+
+    @include s.mediaTo(s.$size960) {
+      font-size: 20px;
+    }
+    @include s.mediaTo(s.$size576) {
+      font-size: 18px;
+    }
+    @include s.mediaTo(s.$size320) {
+      font-size: 16px;
+    }
+  }
+}
