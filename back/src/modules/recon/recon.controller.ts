@@ -33,8 +33,8 @@ import { Roles } from 'src/auth/roles-auth.decorator';
 
 @ApiTags('api/recon')
 @Controller('api/recon')
-@ApiBearerAuth('JWT-auth')
-@UseGuards(RolesGuard)
+// @ApiBearerAuth('JWT-auth')
+// @UseGuards(RolesGuard)
 @Roles('ADMIN')
 export class ReconController {
   constructor(

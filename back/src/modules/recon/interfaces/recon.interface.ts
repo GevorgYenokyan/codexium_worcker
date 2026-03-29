@@ -1,3 +1,5 @@
+import { DirectAccessResult } from 'src/modules/direct-access/direct-access.service';
+
 export interface SubdomainEntry {
   subdomain: string;
   ips: string[];
@@ -39,4 +41,5 @@ export interface ReconScanResult {
     ctLogsFound: number;
     bruteforceFound: number;
   };
+  directAccess?: DirectAccessResult[];
 }
